@@ -1,0 +1,39 @@
+.pet-block{
+  margin: 24px;
+  padding: 8px;
+  border-width: 0.5px;
+  border-color: lightgray;
+  border-style: solid;
+  border-radius: 8px;
+  max-width: fit-content;
+}
+
+.pet-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #464646;
+}
+
+.pet-card h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.pet-card p {
+  margin: 8px 0;
+}
+
+.pet-card img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.available-pets{
+  display: flex;
+}
+
+

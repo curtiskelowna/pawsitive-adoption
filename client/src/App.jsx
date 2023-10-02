@@ -1,11 +1,10 @@
-import PetList from './components/PetList';
+import HomePage from './routes/HomePage';
 
 function App() {
 
   return (
     <div className="App">
-      <h1>My Pet App</h1>
-      <PetList />
+      <HomePage />
     </div>
   );
 }

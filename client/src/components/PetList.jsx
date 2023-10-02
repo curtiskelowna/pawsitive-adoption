@@ -7,7 +7,7 @@ function PetList() {
   useEffect(() => {
     const fetchPets = async () => {
       const response = await axios.get('http://localhost:8080/pets');
-      console.log(response)
+      console.log(response);
       setPets(response.data.animals);
     };
     fetchPets();
@@ -15,7 +15,19 @@ function PetList() {
 
   return (
     <div>
-      {pets && pets.map(pet => <div key={pet.id}>{pet.name}</div>)}
+      {pets && pets.map(pet => (
+        <div key={pet.id}>
+          <h2>{pet.name}</h2>
+          <p>Type: {pet.type}</p>
+          <p>Age: {pet.age}</p>
+          <p>Gender: {pet.gender}</p>
+          
+          {/* Display photos */}
+          {pet.photos && pet.photos.map((photo, index) => (
+            <img key={index} src={photo.medium} alt={`Photo of ${pet.name}`} />
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

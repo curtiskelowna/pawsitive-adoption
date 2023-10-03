@@ -1,11 +1,13 @@
-.pet-block{
+.pet-block {
+  display: flex;
+  justify-content: center;
   margin: 24px;
   padding: 8px;
   border-width: 0.5px;
   border-color: lightgray;
   border-style: solid;
   border-radius: 8px;
-  max-width: fit-content;
+  width: 100vw;
 }
 
 .pet-card {
@@ -27,13 +29,13 @@
 }
 
 .pet-card img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
-.available-pets{
+.available-pets {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-
-

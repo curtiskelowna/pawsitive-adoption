@@ -1,14 +1,18 @@
+import "../styles/HomePage.scss"
 import PetList from "../components/PetList";
 import TopNavBar from "../components/TopNavBar";
-
+import Articles from "../components/Articles";
 
 function HomePage() {
 
   return (
-    <div className="App">
+    <div className="home-route">
       <TopNavBar/>
-      <h1>My Pet App</h1>
+      <h1>New Arrivals</h1>
       <PetList />
+      <div>
+        <Articles />
+      </div>
     </div>
   );
 }

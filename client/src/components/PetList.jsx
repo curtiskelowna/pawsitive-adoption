@@ -7,9 +7,13 @@ function PetList({ openModal, favorites, isFavorite, addToFavorites }) {
 
   useEffect(() => {
     const fetchPets = async () => {
-      const response = await axios.get('http://localhost:8080/pets');
-      console.log(response);
-      setPets(response.data.animals);
+      try {
+        const response = await axios.get('http://localhost:8080/pets');
+        console.log(response);
+        setPets(response.data.animals);
+      } catch (error) {
+        console.error('Error fetching pets:', error);
+      }
     };
     fetchPets();
   }, []);

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import PetListItem from './PetListItem';
 
-function PetList() {
+function PetList({ openModal, favorites, isFavorite, addToFavorites }) {
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
@@ -19,20 +20,9 @@ function PetList() {
 
   return (
     <div>
-      <h2>Pet List</h2>
-      {pets.map((pet) => (
-        <div key={pet.id}>
-          <h2>{pet.name}</h2>
-          <p>Type: {pet.type}</p>
-          <p>Age: {pet.age}</p>
-          <p>Gender: {pet.gender}</p>
-          {/* Display photos */}
-          {pet.photos &&
-            pet.photos.map((photo, index) => (
-              <img key={index} src={photo.medium} alt={`Photo of ${pet.name}`} />
-            ))}
-        </div>
-      ))}
+      <PetListItem pets={pets} openModal={openModal} 
+      favorites={favorites} isFavorite={isFavorite} 
+      addToFavorites={addToFavorites}/>
     </div>
   );
 }

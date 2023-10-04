@@ -7,8 +7,8 @@
 }
 
 .top-nav-bar {
-  position: fixed; /* Make the navigation bar fixed */
-  top: 0; /* Position it at the top of the viewport */
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   display: flex;
@@ -19,9 +19,9 @@
   -webkit-box-shadow: 0 4px 6px -6px #222;
   -moz-box-shadow: 0 4px 6px -6px #222;
   box-shadow: 0 4px 6px -6px #222;
-  height: 100px;
+  height: 85px;
   width: 100vw;
-  background-color: cadetblue;
+  background-color: rgb(126, 208, 211);
 }
 
 .top-nav-bar__logo {
@@ -35,6 +35,11 @@
 .user {
   display: flex;
   width: 150px;
+}
+
+h1{
+  margin-top: 85px;
+  padding: 20px;
 }
 
 /* Dark mode */

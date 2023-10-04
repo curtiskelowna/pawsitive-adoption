@@ -1,15 +1,17 @@
 import PhotoFavButton from "./PhotoFavButton";
-// import "../styles/PhotoFavButton";
+import "../styles/PhotoFavButton.scss";
 import "../styles/PetListItem.scss";
 
-function PetListItem({ pets }) {
+function PetListItem({ pets, openModal, favorites, addToFavorites }) {
 
   const dogsAndCats = pets.filter(
     (pet) => (pet.species === 'Dog' || pet.species === 'Cat') && pet.photos.length > 0
   );
 
-  const displayedPets = dogsAndCats.slice(0, 4);
-
+  const displayedPets = dogsAndCats.slice(0, 6);
+    // const handleClick = (id) => {
+    //   openModal(id)
+    // }
   return (
     <div className="pet-block">
       <div className="available-pets">
@@ -22,11 +24,14 @@ function PetListItem({ pets }) {
             {pet.photos.length > 0 && (
               <>
                 <PhotoFavButton
-                  petId={pet.id}
-                // isFavorite={favorites.includes(pet.id)}
-                // onToggleFavorite={toggleFavorite}
+                  handleClick={() => handleClick(pet.id)}
+                  favorites={favorites}
+                  id={pet.id}
+                  addToFavorites={addToFavorites}
                 />
                 <img
+                  // onClick={() => {handleClick(pet.id)}}
+                  onClick={() => {openModal(pet)}}
                   src={pet.photos[Math.floor(Math.random() * pet.photos.length)].medium}
                   alt={`Photo of ${pet.name}`}
                 />

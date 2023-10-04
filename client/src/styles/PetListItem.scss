@@ -19,9 +19,15 @@
   background-color: #585858;
 }
 
+.pet-card :hover{
+
+}
+
 .pet-card h2 {
+  display: flex;
   font-size: 20px;
   margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 .pet-card p {
@@ -37,5 +43,6 @@
 .available-pets {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
 }

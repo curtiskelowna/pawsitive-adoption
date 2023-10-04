@@ -8,10 +8,12 @@ function PetListItem({ pets, openModal, favorites, addToFavorites }) {
     (pet) => (pet.species === 'Dog' || pet.species === 'Cat') && pet.photos.length > 0
   );
 
-  const displayedPets = dogsAndCats.slice(0, 6);
-    // const handleClick = (id) => {
-    //   openModal(id)
-    // }
+  const displayedPets = dogsAndCats.slice(0, 4);
+
+  // const handleClick = (id) => {
+  //   openModal(id)
+  // }
+
   return (
     <div className="pet-block">
       <div className="available-pets">
@@ -24,15 +26,16 @@ function PetListItem({ pets, openModal, favorites, addToFavorites }) {
             {pet.photos.length > 0 && (
               <>
                 <PhotoFavButton
-                  handleClick={() => handleClick(pet.id)}
-                  favorites={favorites}
+                  handleClick={() => { addToFavorites(pet.id); }}
                   id={pet.id}
-                  addToFavorites={addToFavorites}
+                  favorites={favorites}
                 />
                 <img
-                  // onClick={() => {handleClick(pet.id)}}
-                  onClick={() => {openModal(pet)}}
-                  src={pet.photos[Math.floor(Math.random() * pet.photos.length)].medium}
+                  // onClick={() => { handleClick(pet.id); }} in case more detailes want to be added
+                  onClick={() => {
+                    openModal(pet);
+                  }}
+                  src={pet.photos.length > 0 ? pet.photos[0].medium : ''}
                   alt={`Photo of ${pet.name}`}
                 />
               </>

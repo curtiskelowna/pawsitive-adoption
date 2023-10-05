@@ -1,46 +1,24 @@
-import "../styles/HomePage.scss";
-import PetList from "../components/PetList";
-import TopNavBar from "../components/TopNavBar";
-import PetModal from "./PetModal";
-import Articles from "../components/Articles";
-import Footer from "../components/Footer";
-import {UseApplicationData} from "../hooks/UseApplicationData";
 
-function HomePage(props) {
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Login from "../components/Login";
+import Signup from "../components/Signup";
+import MyFavorites from "../components/MyFavorites";
+import Home from '../components/home';
 
-  const {
-    favorites,
-    addToFavorites,
-    isModalOpen,
-    selectedImage,
-    openModal,
-    closeModal
-  } = UseApplicationData();
+function HomePage() {
+return (
 
-  return (
-    <div className="home-page">
-      <TopNavBar favorites={favorites}/>
-      <div className="search-container">
-        <h1>New Arrivals</h1>
-        <h1>Search bar</h1>
-      </div>
-        <PetList addToFavorites={addToFavorites} openModal={openModal} favorites={favorites} />
-        {isModalOpen && (
-        <PetModal
-          closeModal={closeModal}
-          selectedImage={selectedImage}
-          addToFavorites={addToFavorites}
-          favorites={favorites}
-        />
-      )}
-      <div>
-        <Articles />
-      </div>
-      <footer>
-        <Footer />
-      </footer>
-    </div>
-  );
+    <Router>
+
+        <Routes> {/* Use Routes instead of Switch */}
+          <Route path="/" element={<Home />} />
+          <Route path="/MyFavorites" element={<MyFavorites />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+
+    </Router>
+)
 }
 
 export default HomePage;

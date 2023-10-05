@@ -10,19 +10,24 @@ const PetModal = ({ closeModal, selectedImage, favorites, addToFavorites }) => {
       <button className="photo-details-modal__close-button" onClick={closeModal}>
         <img src={closeSymbol} alt="Close" />
       </button>
-      <div className="photo-list__item">
+      <div className="photo-list-item">
         <PhotoFavButton handleClick={addToFavorites} favorites={favorites} id={selectedImage.id} />
         <img
+          className="pet-image"
           src={selectedImage.photos.length > 0 ? selectedImage.photos[0].medium : ''}
           alt={`Photo of ${selectedImage.name}`}
         />
-        <div className="">
+        <div className="modal-container">
           <p>Name: {selectedImage.name}</p>
           <p>Age: {selectedImage.age}</p>
           <p>Gender: {selectedImage.gender}</p>
           <p>status: {selectedImage.status}</p>
-          <p>contact: {selectedImage.contact.email}</p>
         </div>
+      </div>
+      <div className="contact-container">
+        <p>contact information:</p>
+        <p>{selectedImage.contact.email}</p>
+        <p>{selectedImage.contact.phone}</p>
       </div>
     </div>
   );

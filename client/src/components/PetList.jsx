@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import PetListItem from './PetListItem';
 
-function PetList({ openModal, favorites, isFavorite, addToFavorites }) {
+function PetList({ openModal, favorites, isFavorite, addToFavorites, searchResults }) {
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
@@ -20,9 +20,9 @@ function PetList({ openModal, favorites, isFavorite, addToFavorites }) {
 
   return (
     <div>
-      <PetListItem pets={pets} openModal={openModal} 
-      favorites={favorites} isFavorite={isFavorite} 
-      addToFavorites={addToFavorites}/>
+      <PetListItem pets={pets} searchResults={searchResults} openModal={openModal}
+        favorites={favorites} isFavorite={isFavorite}
+        addToFavorites={addToFavorites} />
     </div>
   );
 }

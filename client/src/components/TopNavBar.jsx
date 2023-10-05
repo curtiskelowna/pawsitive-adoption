@@ -1,5 +1,6 @@
 import "../styles/TopNavBar.scss";
 import FavBadge from "./FavBadge";
+import { Link } from "react-router-dom";
 
 function TopNavBar({ favorites }) {
   return (
@@ -9,10 +10,9 @@ function TopNavBar({ favorites }) {
       <h2>Cats</h2>
       <h2>Dogs</h2>
       <div className="user">
-        <FavBadge favorites={favorites} className="photo-list__fav-icon-svg"
-        // handleClick={() => { addToFavorites(pet.id) }}
-        // id={pet.id}
-        />
+        <FavBadge favorites={favorites} className="photo-list__fav-icon-svg" />
+        <Link to="/login">Login</Link>
+        <Link to="/signup">Signup</Link>
         <h2>User</h2>
       </div>
     </div>

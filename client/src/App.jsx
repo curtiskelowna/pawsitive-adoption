@@ -9,21 +9,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <HomePage />
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/signup">Signup</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <Routes> {/* Use Routes instead of Switch */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>

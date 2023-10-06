@@ -4,12 +4,7 @@ import "../styles/PetListItem.scss";
 
 function PetListItem({ pet, openModal, favorites, addToFavorites }) {
 
-  // const handleClick = (id) => {
-  //   openModal(id)
-  // }
-
   return (
-
     <div className="pet-card">
       <h2>{pet.name}</h2>
       {pet.photos.length > 0 ? (

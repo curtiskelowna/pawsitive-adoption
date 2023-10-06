@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import Login from '../components/Login'
 import Home from '../components/home';
 import "../styles/Footer.scss"
-
+import Logout from '../components/Logout';
 
 function HomePage() {
 
@@ -21,8 +21,6 @@ function HomePage() {
     pets
   } = UseApplicationData();
 
-
-
   return (
     <div>
       <Router>
@@ -32,6 +30,7 @@ function HomePage() {
           <Route path="/MyFavorites" element={<MyFavorites favorites={favorites} pets={pets} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
         <Footer />
       </Router>

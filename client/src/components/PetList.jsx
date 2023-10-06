@@ -1,7 +1,7 @@
 import PetListItem from './PetListItem';
 
 function PetList({ openModal, favorites, isFavorite, addToFavorites, pets }) {
-  
+
   const dogsAndCats = pets.filter(
     (pet) => (pet.species === 'Dog' || pet.species === 'Cat')
   );

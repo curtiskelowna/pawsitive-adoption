@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
 function Signup() {
   const [fullName, setFullName] = useState('');
@@ -8,6 +10,7 @@ function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isSigningUp, setIsSigningUp] = useState(false);
+  let navigate = useNavigate();
 
   const handleSignup = async () => {
     setError('');
@@ -30,9 +33,16 @@ function Signup() {
         email,
         password: userPassword, // Use the stored 'userPassword' variable
       });
+      // Handle successful login and token response
+      console.log('Signup successful:', response.data.token);
+      // Store the token in localStorage
+      localStorage.setItem('token', response.data.token);
+      const userData = jwtDecode(response.data.token);
+      localStorage.setItem('userData', JSON.stringify(userData));
+      console.log(jwtDecode(response.data.token));
+      // Navigate to the home page
+      navigate('/');
 
-      // Handle successful registration and token response
-      console.log('Registration successful:', response.data.token);
     } catch (error) {
       // Handle registration error
       console.error('Registration failed:', error.message);

@@ -3,6 +3,7 @@ import '../styles/PetDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from '../components/PhotoFavButton';
 
+
 const PetModal = ({ closeModal, selectedImage, favorites, addToFavorites }) => {
 
   return (
@@ -14,7 +15,7 @@ const PetModal = ({ closeModal, selectedImage, favorites, addToFavorites }) => {
         <PhotoFavButton handleClick={addToFavorites} favorites={favorites} id={selectedImage.id} />
         <img
           className="pet-image"
-          src={selectedImage.photos.length > 0 ? selectedImage.photos[0].medium : ''}
+          src={selectedImage.photos.length > 0 ? selectedImage.photos[0].medium : "/images/cat-dog.jpg"}
           alt={`Photo of ${selectedImage.name}`}
         />
         <div className="modal-container">

@@ -2,27 +2,25 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import PetListItem from './PetListItem';
 
-function PetList({ openModal, favorites, isFavorite, addToFavorites }) {
-  const [pets, setPets] = useState([]);
+function PetList({ openModal, favorites, isFavorite, addToFavorites, pets }) {
+  
+  const dogsAndCats = pets.filter(
+    (pet) => (pet.species === 'Dog' || pet.species === 'Cat')
+  );
 
-  useEffect(() => {
-    const fetchPets = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/pets');
-        console.log(response);
-        setPets(response.data.animals);
-      } catch (error) {
-        console.error('Error fetching pets:', error);
-      }
-    };
-    fetchPets();
-  }, []);
+  const displayedPets = dogsAndCats.slice(0, 5);
 
   return (
     <div>
-      <PetListItem pets={pets} openModal={openModal} 
-      favorites={favorites} isFavorite={isFavorite} 
-      addToFavorites={addToFavorites}/>
+      <div className="pet-block">
+        <div className="available-pets">
+          {displayedPets.map((pet) => (
+            <PetListItem key={pet.id} pet={{...pet}} openModal={openModal}
+              favorites={favorites} isFavorite={isFavorite}
+              addToFavorites={addToFavorites} />
+          ))}
+    </div>
+      </div>
     </div>
   );
 }

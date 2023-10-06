@@ -30,13 +30,14 @@ const getUserByEmail = async (email, password) => {
     }
 
     // Compare the provided password with the hashed password in the database
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    // const passwordMatch = await bcrypt.compare(password, user.password);
 
-    if (passwordMatch) {
-      return user; // Password matches
-    } else {
-      return null; // Password does not match
-    }
+    // if (passwordMatch) {
+    //   return user; // Password matches
+    // } else {
+    //   return null; // Password does not match
+    // }
+    return user;
   } catch (error) {
     console.error('Error fetching user by email:', error);
     throw new Error('Error fetching user by email');

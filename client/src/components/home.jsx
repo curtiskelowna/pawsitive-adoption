@@ -2,18 +2,9 @@ import "../styles/HomePage.scss";
 import PetList from "../components/PetList";
 import PetModal from "../routes/PetModal";
 import Articles from "../components/Articles";
-import { UseApplicationData } from "../hooks/UseApplicationData";
 
-function Home() {
 
-  const {
-    favorites,
-    addToFavorites,
-    isModalOpen,
-    selectedImage,
-    openModal,
-    closeModal
-  } = UseApplicationData();
+function Home({addToFavorites, openModal, favorites, closeModal, selectedImage, isModalOpen, pets}) {
 
   return (
     <div className="home-page">
@@ -21,7 +12,7 @@ function Home() {
         <h1>New Arrivals</h1>
         <h1>Search bar</h1>
       </div>
-      <PetList addToFavorites={addToFavorites} openModal={openModal} favorites={favorites} />
+      <PetList addToFavorites={addToFavorites} openModal={openModal} favorites={favorites} pets={pets} />
       {isModalOpen && (
         <PetModal
           closeModal={closeModal}

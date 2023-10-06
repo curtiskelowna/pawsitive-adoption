@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoggingIn, setIsLoggingIn] = useState(false);
+  let navigate = useNavigate();
 
   const handleLogin = async () => {
     setError('');
@@ -17,9 +19,15 @@ function Login() {
       }
 
       const response = await axios.post('http://localhost:8080/login', { email, password: password });
+      console.log(response.data);
 
       // Handle successful login and token response
       console.log('Login successful:', response.data.token);
+      // Store the token in localStorage
+      localStorage.setItem('token', response.data.token);
+      // localStorage.setItem('userId', response.data.userId);
+      // Navigate to the home page
+      navigate('/');
     } catch (error) {
       // Handle login error
       console.error('Login failed:', error.message);

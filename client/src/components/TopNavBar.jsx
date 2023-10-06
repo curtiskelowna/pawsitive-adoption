@@ -10,8 +10,6 @@ function TopNavBar({ favorites }) {
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">LOGO</span>
       <h2>Pawsitive Adoptions</h2>
-      <h2>Cats</h2>
-      <h2>Dogs</h2>
       <div className="user">
         <FavBadge favorites={favorites} className="photo-list__fav-icon-svg" />
         {isLoggedIn ? (

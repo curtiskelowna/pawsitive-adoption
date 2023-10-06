@@ -6,9 +6,10 @@ import Articles from "../components/Articles";
 import Footer from "../components/Footer";
 import { UseApplicationData } from "../hooks/UseApplicationData";
 import SearchBar from "../components/SearchBar";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
-function HomePage(props) {
+function HomePage() {
 
   const {
     favorites,
@@ -19,42 +20,48 @@ function HomePage(props) {
     closeModal
   } = UseApplicationData();
 
-  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [pets, setPets] = useState([]);
 
-  const onSearch = async (searchTerm) => {
-    searchTerm = searchTerm.toLowerCase();
+  // Function to handle the search
+  const handleSearchPets = async (searchTerm) => {
     try {
-      console.log('onSearch called with searchTerm:', searchTerm);
-      const REACT_APP_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJFOWQwUTZHTGVUdkFrYW5rZHREeGNLYlQxQWllTFFWVVJtY3lHVDJoUEo0QTYwNWU3TSIsImp0aSI6IjA0YmRhMGE0NDAyNzg1MjRlNTNmMDdhYThhZTA4YzJhNGEzYjIzYzdiNDdkODc4MzY0MTUxMjllNjg0MmM1ODgxN2ZlYWRjNTUyN2ZmMWQ4IiwiaWF0IjoxNjk2NTMxMzMzLCJuYmYiOjE2OTY1MzEzMzMsImV4cCI6MTY5NjUzNDkzMywic3ViIjoiIiwic2NvcGVzIjpbXX0.ellyUXqt9T-sxazV0QA0Va6WglMw9foilBAXp6YpAyasxRUpzal_oLc98djvomknZ3k6RiP1uuBBW36JX0_Nm1Sk9yX3gJtn0M4Q41QqOvdCZVTmpuwGssAuGLSufYlOUMuzph45nFmBn_7wfk3cwFqUwIuSU4DOPVsVs3iEF4t9KJt0HRkVfOX8htvpFmlD8NskWHJVEQhm3xo1iKT153G8Ge3_9AuqSwEqSJug3rknndArU42iTHXbGa2AG4dxlEVCYMb_BqK40n-0ogW8ZTtAJaYJDNrQwts6D0O6FCrRkGig_JarNSohCHp90OKpmkxx0VL4dYbsn86tWQr7Jg';
-      const response = await fetch(`https://api.petfinder.com/v2/animals?type=${searchTerm}`, {
-        headers: {
-          Authorization: `Bearer ${REACT_APP_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Something went wrong");
-      }
-      const data = await response.json();
-      // Filter the pets to include only those with photos
-      const petsWithPhotos = data.animals.filter((pet) => pet.photos.length > 0);
-      // Assuming the pet search results are in the 'animals' property of the response
-      setSearchResults(petsWithPhotos);
+      setLoading(true);
+      const apiResponse = await axios.get(`http://localhost:8080/pets?q=${searchTerm}`);
+      const petsWithPhotos = apiResponse.data.animals.filter((pet) => pet.photos.length > 0);
+      setPets(petsWithPhotos);
+      setLoading(false);
     } catch (error) {
       console.error('Error fetching search results:', error);
-      // Handle error gracefully, e.g., display an error message to the user
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const fetchPets = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/pets');
+        console.log(response);
+        setPets(response.data.animals);
+      } catch (error) {
+        console.error('Error fetching pets:', error);
+      }
+    };
+    fetchPets();
+  }, []);
 
   return (
     <div className="home-page">
       <TopNavBar favorites={favorites} />
       <div className="search-container">
         <h1>New Arrivals</h1>
-        <SearchBar onSearch={onSearch} />
-        {console.log('SearchBar rendered')} {/* Add this line */}
+        <SearchBar onSearch={handleSearchPets} />
       </div>
-      <PetList addToFavorites={addToFavorites} openModal={openModal} favorites={favorites} searchResults={searchResults} />
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <PetList addToFavorites={addToFavorites} openModal={openModal} favorites={favorites} pets={pets} />
+      )}
       {isModalOpen && (
         <PetModal
           closeModal={closeModal}

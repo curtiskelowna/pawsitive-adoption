@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const pool = require('./configs/db.config');
 const { createUser, getUserByEmail } = require('./db/queries/users');
+const axios = require('axios');
+const { getToken } = require('./getToken');
 
 require('dotenv').config();
 
@@ -43,9 +45,9 @@ app.post('/signup', async (req, res) => {
     const newUser = await createUser(fullname, email, password);
 
     // Create a JWT token for the new user
-    const token = jwt.sign({ email: newUser.email }, secretKey);
+    const token = jwt.sign({ ...newUser }, secretKey);
 
-    res.status(201).json({ token });
+    res.status(201).json({ token, userId: newUser.id });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
@@ -67,7 +69,7 @@ app.post('/login', async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (passwordMatch) {
-      const token = jwt.sign({ email: user.email }, secretKey);
+      const token = jwt.sign({ ...user }, secretKey);
       res.json({ token });
     } else {
       res.status(401).json({ loggedIn: false, message: 'Authentication failed' });
@@ -90,6 +92,16 @@ app.use((req, res, next) => {
     req.user = decoded;
     next();
   });
+});
+
+// API endpoint to get the access token
+app.get('/api/getToken', async (req, res) => {
+  try {
+    const token = await getToken();
+    res.json({ access_token: token });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to retrieve access token' });
+  }
 });
 
 module.exports = app;

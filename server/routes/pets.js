@@ -1,25 +1,34 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
-const token = process.env.REACT_APP_TOKEN;
+const { getToken } = require('../getToken');
 
-const axiosInstance = axios.create({
-  baseURL: 'https://api.petfinder.com/v2/',
-  timeout: 1000,
-  headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
-});
+const getPetFinderInstance = async () => {
+  const token = await getToken();
+  const axiosInstance = await axios.create({
+    baseURL: 'https://api.petfinder.com/v2',
+    timeout: 5000,
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
+  });
+  return axiosInstance;
+};
 
 router.get('/', async (req, res) => {
   try {
-    const response = await axiosInstance.get('animals');
+    let axiosInstance = await getPetFinderInstance();
+    let query = axiosInstance.get('/animals');
+    const { q } = req.query;
+    if (q) {
+      query = axiosInstance.get(`/animals?type=${q}`);
+    }
+    const response = await query;
     const pets = response.data;
-    console.log(response.data)
     res.json(pets);
-  } catch(err) {
-    console.error(`Error: ${err}`);
-    res.status(500).json({ message: err.message });
+  } catch (err) {
+    // Handle other errors
+    console.error('Error fetching pets:', err.message, err.stack);
+    res.status(500).json({ message: 'Error fetching pets' });
   }
 });
 
 module.exports = router;
-

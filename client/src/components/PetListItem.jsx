@@ -2,7 +2,7 @@ import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoFavButton.scss";
 import "../styles/PetListItem.scss";
 
-function PetListItem({ pets, openModal, favorites, addToFavorites, searchResults
+function PetListItem({ pets, openModal, favorites, addToFavorites
 }) {
 
   const dogsAndCats = pets.filter(
@@ -11,17 +11,10 @@ function PetListItem({ pets, openModal, favorites, addToFavorites, searchResults
 
   const displayedPets = dogsAndCats.slice(0, 4);
 
-  const petsToDisplay = searchResults.length > 0 ? searchResults : displayedPets;
-
-
-  // const handleClick = (id) => {
-  //   openModal(id)
-  // }
-
   return (
     <div className="pet-block">
       <div className="available-pets">
-        {petsToDisplay.map((pet) => (
+        {displayedPets.map((pet) => (
           <div className="pet-card" key={pet.id}>
             <h2>{pet.name}</h2>
             {/* <p>Type: {pet.type}</p>

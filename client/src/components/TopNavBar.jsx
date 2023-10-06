@@ -8,8 +8,6 @@ function TopNavBar({ favorites }) {
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">LOGO</span>
       <Link to="/" className="page-name">Pawsitive Adoptions</Link>
-      <h2>Cats</h2>
-      <h2>Dogs</h2>
       
         <div className="user">
           <Link to="/MyFavorites">

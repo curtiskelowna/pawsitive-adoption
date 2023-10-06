@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import jwtDecode from "jwt-decode";
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -25,7 +26,9 @@ function Login() {
       console.log('Login successful:', response.data.token);
       // Store the token in localStorage
       localStorage.setItem('token', response.data.token);
-      // localStorage.setItem('userId', response.data.userId);
+      const userData = jwtDecode(response.data.token);
+      localStorage.setItem('userData', JSON.stringify(userData));
+      console.log(jwtDecode(response.data.token));
       // Navigate to the home page
       navigate('/');
     } catch (error) {

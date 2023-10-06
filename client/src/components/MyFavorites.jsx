@@ -8,14 +8,22 @@ function MyFavorites({ pets, favorites }) {
   return (
     <div>
       <h2>My Favorites</h2>
-      <ul>
+      <div>
         {favoritedPets.map((favoritePet) => (
-          <li key={favoritePet.id}>
-            <img src={favoritePet.imageURL} alt={favoritePet.name} />
+          <div key={favoritePet.id}>
+            {favoritePet.photos.length > 0 ? (
+              <>
+                <img src={favoritePet.photos[0].medium} alt={favoritePet.name} />
+              </>
+            ) : (
+              <img src="/images/cat-dog.jpg" alt="Default Photo" />
+            )}
             <p>{favoritePet.name}</p>
-          </li>
+            <p>{favoritePet.age}</p>
+            <p>{favoritePet.status}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

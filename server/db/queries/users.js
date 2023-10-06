@@ -19,7 +19,7 @@ const createUser = async (fullname, email, password) => {
 };
 
 // Function to get a user by email
-const getUserByEmail = async (email, password) => {
+const getUserByEmail = async (email) => {
   const query = 'SELECT * FROM users WHERE email = $1';
   try {
     const result = await db.query(query, [email]);
@@ -29,14 +29,6 @@ const getUserByEmail = async (email, password) => {
       return null; // User not found
     }
 
-    // Compare the provided password with the hashed password in the database
-    // const passwordMatch = await bcrypt.compare(password, user.password);
-
-    // if (passwordMatch) {
-    //   return user; // Password matches
-    // } else {
-    //   return null; // Password does not match
-    // }
     return user;
   } catch (error) {
     console.error('Error fetching user by email:', error);

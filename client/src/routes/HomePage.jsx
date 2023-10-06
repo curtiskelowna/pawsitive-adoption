@@ -29,7 +29,7 @@ function HomePage() {
         <TopNavBar favorites={favorites} />
         <Routes>
           <Route path="/" element={<Home favorites={favorites} addToFavorites={addToFavorites} isModalOpen={isModalOpen} pets={pets} selectedImage={selectedImage} openModal={openModal} closeModal={closeModal} />} />
-          <Route path="/MyFavorites" element={<MyFavorites favorites={favorites} pets={pets}/>} />
+          <Route path="/MyFavorites" element={<MyFavorites favorites={favorites} pets={pets} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>

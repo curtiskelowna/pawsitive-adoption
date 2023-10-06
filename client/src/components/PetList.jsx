@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import PetListItem from './PetListItem';
 
 function PetList({ openModal, favorites, isFavorite, addToFavorites, pets }) {
@@ -8,7 +6,7 @@ function PetList({ openModal, favorites, isFavorite, addToFavorites, pets }) {
     (pet) => (pet.species === 'Dog' || pet.species === 'Cat')
   );
 
-  const displayedPets = dogsAndCats.slice(0, 5);
+  const displayedPets = dogsAndCats.slice(0, 10);
 
   return (
     <div>

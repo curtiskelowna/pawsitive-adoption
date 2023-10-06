@@ -18,15 +18,18 @@ const PetModal = ({ closeModal, selectedImage, favorites, addToFavorites }) => {
           src={selectedImage.photos.length > 0 ? selectedImage.photos[0].medium : "/images/cat-dog.jpg"}
           alt={`Photo of ${selectedImage.name}`}
         />
-        <div className="modal-container">
+          <div className="modal-container">
+        {selectedImage.photos.length === 0 && (
+            <p>Breed: {selectedImage.species}</p>
+        )}
           <p>Name: {selectedImage.name}</p>
           <p>Age: {selectedImage.age}</p>
           <p>Gender: {selectedImage.gender}</p>
-          <p>status: {selectedImage.status}</p>
+          <p>Status: {selectedImage.status}</p>
         </div>
       </div>
       <div className="contact-container">
-        <p>contact information:</p>
+        <p>Contact information:</p>
         <p>{selectedImage.contact.email}</p>
         <p>{selectedImage.contact.phone}</p>
       </div>

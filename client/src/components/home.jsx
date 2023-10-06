@@ -10,7 +10,7 @@ function Home({addToFavorites, openModal, favorites, closeModal, selectedImage, 
     <div className="home-page">
       <div className="search-container">
         <h1>New Arrivals</h1>
-        <h1>Search bar</h1>
+
       </div>
       <PetList addToFavorites={addToFavorites} openModal={openModal} favorites={favorites} pets={pets} />
       {isModalOpen && (

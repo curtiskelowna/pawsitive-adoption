@@ -23,9 +23,9 @@ router.get('/', async (req, res) => {
 
 router.post('/:id/favorite', (req, res)=>{
   const { id } = req.params;
-  const userId = 1; // You may replace this with the actual user ID
+  const userId = 1;
 
-  // Check if the pet ID is already in the favorites array
+  // Checks if the pet ID is already in the favorites array
   const index = favoritePets.findIndex((petId) => petId === id);
 
   if (index === -1) {
@@ -35,8 +35,6 @@ router.post('/:id/favorite', (req, res)=>{
     // If found, remove it from favorites
     favoritePets.splice(index, 1);
   }
-
-  // You can also store the favoritePets array in a database
 
   // Respond with the updated list of favorite pet IDs
   res.json(favoritePets);

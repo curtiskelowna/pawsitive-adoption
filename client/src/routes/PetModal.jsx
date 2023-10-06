@@ -3,6 +3,7 @@ import '../styles/PetDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from '../components/PhotoFavButton';
 
+
 const PetModal = ({ closeModal, selectedImage, favorites, addToFavorites }) => {
 
   return (
@@ -10,19 +11,27 @@ const PetModal = ({ closeModal, selectedImage, favorites, addToFavorites }) => {
       <button className="photo-details-modal__close-button" onClick={closeModal}>
         <img src={closeSymbol} alt="Close" />
       </button>
-      <div className="photo-list__item">
+      <div className="photo-list-item">
         <PhotoFavButton handleClick={addToFavorites} favorites={favorites} id={selectedImage.id} />
         <img
-          src={selectedImage.photos.length > 0 ? selectedImage.photos[0].medium : ''}
+          className="pet-image"
+          src={selectedImage.photos.length > 0 ? selectedImage.photos[0].medium : "/images/cat-dog.jpg"}
           alt={`Photo of ${selectedImage.name}`}
         />
-        <div className="">
+          <div className="modal-container">
+        {selectedImage.photos.length === 0 && (
+            <p>Breed: {selectedImage.species}</p>
+        )}
           <p>Name: {selectedImage.name}</p>
           <p>Age: {selectedImage.age}</p>
           <p>Gender: {selectedImage.gender}</p>
-          <p>status: {selectedImage.status}</p>
-          <p>contact: {selectedImage.contact.email}</p>
+          <p>Status: {selectedImage.status}</p>
         </div>
+      </div>
+      <div className="contact-container">
+        <p>Contact information:</p>
+        <p>{selectedImage.contact.email}</p>
+        <p>{selectedImage.contact.phone}</p>
       </div>
     </div>
   );

@@ -59,7 +59,7 @@ app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await getUserByEmail(email, password);
+    const user = await getUserByEmail(email);
 
     if (!user) {
       return res.status(401).json({ loggedIn: false, message: 'Authentication failed' });

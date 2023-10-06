@@ -1,6 +1,6 @@
 import "../styles/TopNavBar.scss";
 import FavBadge from "./FavBadge";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function TopNavBar({ favorites }) {
   const isLoggedIn = localStorage.getItem('token');
@@ -9,10 +9,15 @@ function TopNavBar({ favorites }) {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">LOGO</span>
-      <h2>Pawsitive Adoptions</h2>
-      <div className="user">
-        <FavBadge favorites={favorites} className="photo-list__fav-icon-svg" />
-        {isLoggedIn ? (
+      <Link to="/" className="page-name">Pawsitive Adoptions</Link>
+        <div className="user">
+          <Link to="/MyFavorites">
+            <FavBadge favorites={favorites} className="photo-list__fav-icon-svg"
+            // handleClick={() => { addToFavorites(pet.id) }}
+            // id={pet.id}
+            />
+          </Link>
+          {isLoggedIn ? (
           <>
             <h4>{fullname}</h4>
             <Link to="/logout">Logout</Link>

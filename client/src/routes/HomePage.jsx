@@ -1,81 +1,39 @@
-import "../styles/HomePage.scss";
-import PetList from "../components/PetList";
-import TopNavBar from "../components/TopNavBar";
-import PetModal from "./PetModal";
-import Articles from "../components/Articles";
-import Footer from "../components/Footer";
-import { UseApplicationData } from "../hooks/UseApplicationData";
-import SearchBar from "../components/SearchBar";
-import React, { useState, useEffect } from 'react';
-import axios from "axios";
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { UseApplicationData } from '../hooks/UseApplicationData';
+import MyFavorites from "../components/MyFavorites";
+import TopNavBar from '../components/TopNavBar';
+import Signup from "../components/Signup";
+import Footer from '../components/Footer';
+import Login from '../components/Login'
+import Home from '../components/home';
+import "../styles/Footer.scss"
+import Logout from '../components/Logout';
 
 function HomePage() {
 
   const {
-    favorites,
     addToFavorites,
-    isModalOpen,
     selectedImage,
+    isModalOpen,
+    closeModal,
+    favorites,
     openModal,
-    closeModal
+    pets
   } = UseApplicationData();
 
-  const [loading, setLoading] = useState(false);
-  const [pets, setPets] = useState([]);
-
-  // Function to handle the search
-  const handleSearchPets = async (searchTerm) => {
-    try {
-      setLoading(true);
-      const apiResponse = await axios.get(`http://localhost:8080/pets?q=${searchTerm}`);
-      const petsWithPhotos = apiResponse.data.animals.filter((pet) => pet.photos.length > 0);
-      setPets(petsWithPhotos);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching search results:', error);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    const fetchPets = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/pets');
-        console.log(response);
-        setPets(response.data.animals);
-      } catch (error) {
-        console.error('Error fetching pets:', error);
-      }
-    };
-    fetchPets();
-  }, []);
-
   return (
-    <div className="home-page">
-      <TopNavBar favorites={favorites} />
-      <div className="search-container">
-        <h1>New Arrivals</h1>
-        <SearchBar onSearch={handleSearchPets} />
-      </div>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <PetList addToFavorites={addToFavorites} openModal={openModal} favorites={favorites} pets={pets} />
-      )}
-      {isModalOpen && (
-        <PetModal
-          closeModal={closeModal}
-          selectedImage={selectedImage}
-          addToFavorites={addToFavorites}
-          favorites={favorites}
-        />
-      )}
-      <div>
-        <Articles />
-      </div>
-      <footer>
+    <div>
+      <Router>
+        <TopNavBar favorites={favorites} />
+        <Routes>
+          <Route path="/" element={<Home favorites={favorites} addToFavorites={addToFavorites} isModalOpen={isModalOpen} pets={pets} selectedImage={selectedImage} openModal={openModal} closeModal={closeModal} />} />
+          <Route path="/MyFavorites" element={<MyFavorites favorites={favorites} pets={pets} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/logout" element={<Logout />} />
+        </Routes>
         <Footer />
-      </footer>
+      </Router>
     </div>
   );
 }

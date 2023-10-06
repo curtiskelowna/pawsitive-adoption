@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 
-function Login() {
+function Login({ login, isLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -11,6 +11,10 @@ function Login() {
   let navigate = useNavigate();
 
   const handleLogin = async () => {
+    if (isLoggedIn) {
+      navigate('/');
+      return;
+    }
     setError('');
     setIsLoggingIn(true);
 
@@ -29,14 +33,14 @@ function Login() {
       const userData = jwtDecode(response.data.token);
       localStorage.setItem('userData', JSON.stringify(userData));
       console.log(jwtDecode(response.data.token));
+      login();
+      setIsLoggingIn(false);
       // Navigate to the home page
       navigate('/');
     } catch (error) {
       // Handle login error
       console.error('Login failed:', error.message);
       setError(error.message); // Set the error message to display to the user
-    } finally {
-      setIsLoggingIn(false);
     }
   };
 

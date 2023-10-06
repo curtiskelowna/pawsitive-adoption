@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
-function Signup() {
+function Signup({ login, isLoggedIn }) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,6 +13,10 @@ function Signup() {
   let navigate = useNavigate();
 
   const handleSignup = async () => {
+    if (isLoggedIn) {
+      navigate('/');
+      return;
+    }
     setError('');
     setIsSigningUp(true);
 
@@ -40,6 +44,8 @@ function Signup() {
       const userData = jwtDecode(response.data.token);
       localStorage.setItem('userData', JSON.stringify(userData));
       console.log(jwtDecode(response.data.token));
+      login();
+      setIsSigningUp(false);
       // Navigate to the home page
       navigate('/');
 
@@ -47,8 +53,6 @@ function Signup() {
       // Handle registration error
       console.error('Registration failed:', error.message);
       setError(error.message); // Set the error message to display to the user
-    } finally {
-      setIsSigningUp(false);
     }
   };
 

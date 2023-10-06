@@ -5,6 +5,7 @@ const { getToken } = require('../getToken');
 
 const getPetFinderInstance = async () => {
   const token = await getToken();
+  console.log('token:', token);
   const axiosInstance = await axios.create({
     baseURL: 'https://api.petfinder.com/v2',
     timeout: 5000,

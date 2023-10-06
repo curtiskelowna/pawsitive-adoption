@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 function TopNavBar({ favorites }) {
   const isLoggedIn = localStorage.getItem('token');
-  const { fullname } = JSON.parse(localStorage.getItem('userData'));
-
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  const fullname = userData ? userData.fullname : null;
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">LOGO</span>

@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import PetListItem from './PetListItem';
 
 function PetList({ openModal, favorites, isFavorite, addToFavorites, pets }) {

@@ -24,15 +24,12 @@ function Login({ login, isLoggedIn }) {
       }
 
       const response = await axios.post('http://localhost:8080/login', { email, password: password });
-      console.log(response.data);
 
       // Handle successful login and token response
-      console.log('Login successful:', response.data.token);
       // Store the token in localStorage
       localStorage.setItem('token', response.data.token);
       const userData = jwtDecode(response.data.token);
       localStorage.setItem('userData', JSON.stringify(userData));
-      console.log(jwtDecode(response.data.token));
       login();
       setIsLoggingIn(false);
       // Navigate to the home page

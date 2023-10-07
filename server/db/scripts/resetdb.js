@@ -1,4 +1,3 @@
-// -- /server/db/scripts/resetdb.js
 // reset your database
 require("dotenv").config();
 const { Client } = require('pg');

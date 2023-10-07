@@ -38,12 +38,10 @@ function Signup({ login, isLoggedIn }) {
         password: userPassword, // Use the stored 'userPassword' variable
       });
       // Handle successful login and token response
-      console.log('Signup successful:', response.data.token);
       // Store the token in localStorage
       localStorage.setItem('token', response.data.token);
       const userData = jwtDecode(response.data.token);
       localStorage.setItem('userData', JSON.stringify(userData));
-      console.log(jwtDecode(response.data.token));
       login();
       setIsSigningUp(false);
       // Navigate to the home page

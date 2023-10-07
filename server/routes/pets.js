@@ -5,7 +5,6 @@ const { getToken } = require('../getToken');
 
 const getPetFinderInstance = async () => {
   const token = await getToken();
-  console.log('token:', token);
   const axiosInstance = await axios.create({
     baseURL: 'https://api.petfinder.com/v2',
     timeout: 5000,
@@ -23,8 +22,6 @@ router.get('/', async (req, res) => {
       query = axiosInstance.get(`/animals?type=${q}`);
     }
     const response = await query;
-
-    // const response = await axiosInstance.get('animals?page=1');
     
     const pets = response.data;
     res.json(pets);
@@ -37,7 +34,6 @@ router.get('/', async (req, res) => {
 
 router.post('/:id/favorite', (req, res)=>{
   const { id } = req.params;
-  const userId = 1;
 
   // Checks if the pet ID is already in the favorites array
   const index = favoritePets.findIndex((petId) => petId === id);

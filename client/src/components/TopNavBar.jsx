@@ -14,7 +14,7 @@ function TopNavBar({ favorites, login, isLoggedIn }) {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">LOGO</span>
-      <Link to="/" className="page-name">Pawsitive Adoptions</Link>
+      <Link to="/" className="page-name" reloadDocument >Pawsitive Adoptions</Link>
       <div className="user">
         <Link to="/MyFavorites">
           <FavBadge favorites={favorites} className="photo-list__fav-icon-svg"

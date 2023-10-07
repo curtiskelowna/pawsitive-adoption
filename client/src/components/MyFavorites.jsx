@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function MyFavorites({ pets, favorites }) {
   // Filter the pets based on the favorite IDs in the 'favorites' prop
   const favoritedPets = pets.filter((pet) => favorites.includes(pet.id));

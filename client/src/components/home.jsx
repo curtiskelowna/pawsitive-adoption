@@ -1,8 +1,8 @@
 import "../styles/HomePage.scss";
-import PetList from "../components/PetList";
+import PetList from "./PetList";
 import PetModal from "../routes/PetModal";
-import Articles from "../components/Articles";
-import SearchBar from "../components/SearchBar";
+import Articles from "./Articles";
+import SearchBar from "./SearchBar";
 
 function Home({ addToFavorites, openModal, favorites, closeModal, selectedImage, isModalOpen, pets, searchPets, loading }) {
 
@@ -31,6 +31,5 @@ function Home({ addToFavorites, openModal, favorites, closeModal, selectedImage,
 
   );
 }
-
 
 export default Home;

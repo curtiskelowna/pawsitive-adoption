@@ -32,7 +32,7 @@ const reducer = (state, action) => {
   }
 };
 
-export function UseApplicationData() {
+export function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, {
     favorites: [],
     isModalOpen: false,

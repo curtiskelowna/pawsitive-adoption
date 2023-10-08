@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { UseApplicationData } from '../hooks/UseApplicationData';
+import { useApplicationData } from '../hooks/useApplicationData';
 import MyFavorites from "../components/MyFavorites";
 import TopNavBar from '../components/TopNavBar';
 import Signup from "../components/Signup";
 import Footer from '../components/Footer';
 import Login from '../components/Login';
-import Home from '../components/home';
+import Home from '../components/Home';
 import "../styles/Footer.scss";
 
 function HomePage() {
@@ -23,7 +23,7 @@ function HomePage() {
     searchLoading,
     login,
     isLoggedIn
-  } = UseApplicationData();
+  } = useApplicationData();
 
   return (
     <div>

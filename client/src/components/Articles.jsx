@@ -6,18 +6,18 @@ function Articles() {
   const [catArticles, setCatArticles] = useState([]);
 
   useEffect(() => {
-    // Fetch dog adoption articles
+
     fetchDogArticles()
       .then(articles => setDogArticles(articles))
       .catch(error => console.error("Error fetching dog articles:", error));
 
-    // Fetch cat adoption articles
+
     fetchCatArticles()
       .then(articles => setCatArticles(articles))
       .catch(error => console.error("Error fetching cat articles:", error));
   }, []);
 
-  // Function to fetch dog adoption articles
+
   const fetchDogArticles = async () => {
     const dogArticles = [
       {
@@ -36,7 +36,7 @@ function Articles() {
     return dogArticles;
   };
 
-  // Function to fetch cat adoption articles
+
   const fetchCatArticles = async () => {
     const catArticles = [
       {
@@ -66,11 +66,11 @@ function Articles() {
 
   return (
     <div className="article-body">
-      <div className="dog-article">
+      <div className="article">
         <h1>Dogs</h1>
         {renderArticleLinks(dogArticles)}
       </div>
-      <div className="cat-article">
+      <div className="article">
         <h1>Cats</h1>
         {renderArticleLinks(catArticles)}
       </div>

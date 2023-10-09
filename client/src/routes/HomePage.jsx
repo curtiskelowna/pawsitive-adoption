@@ -26,7 +26,7 @@ function HomePage() {
   } = useApplicationData();
 
   return (
-    <div>
+    <div className="bg">
       <Router>
         <TopNavBar favorites={favorites} isLoggedIn={isLoggedIn} login={login} />
         <Routes>

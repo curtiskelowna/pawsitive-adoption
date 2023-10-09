@@ -13,7 +13,7 @@ function TopNavBar({ favorites, login, isLoggedIn }) {
   };
   return (
     <div className="top-nav-bar">
-      <span className="top-nav-bar__logo">LOGO</span>
+      <div className="top-nav-bar__logo"></div>
       <Link to="/" className="page-name" reloadDocument >Pawsitive Adoptions</Link>
       <div className="user">
         <Link to="/MyFavorites">
@@ -26,10 +26,10 @@ function TopNavBar({ favorites, login, isLoggedIn }) {
             <span onClick={logout} style={{ cursor: 'pointer' }}>Logout</span>
           </>
         ) : (
-          <>
+          <div className="user-container">
             <Link to="/login">Login</Link>
             <Link to="/signup">Signup</Link>
-          </>
+          </div>
         )}
       </div>
     </div>

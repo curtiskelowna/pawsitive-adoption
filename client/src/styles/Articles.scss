@@ -7,16 +7,19 @@
   justify-content: center;
 }
 
-.cat-article {
+.article {
   width: 500px;
   margin: 10px;
   padding: 5px;
   border: 1px solid black;
 }
 
-.dog-article {
-  width: 500px;
-  margin: 10px;
-  padding: 5px;
-  border: 1px solid black;
+.article-link a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.article-link a:hover {
+  text-decoration: underline;
+  color: black;
 }

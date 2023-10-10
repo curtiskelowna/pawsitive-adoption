@@ -29,7 +29,6 @@ span:hover{
 .media-icons{
   display: flex;
   height: 200px;
-  width: 50vw;
   justify-content: flex-end;
   flex-direction: row;
   align-items: center;
@@ -70,6 +69,7 @@ a.instagram {
 #page-container {
   display: flex;
   flex-direction: column;
+  background-color:rgb(47, 137, 248);
 }
 
 .footer-container{

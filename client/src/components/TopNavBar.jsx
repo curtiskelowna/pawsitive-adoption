@@ -28,7 +28,7 @@ function TopNavBar({ favorites, login, isLoggedIn }) {
         ) : (
           <div className="user-container">
             <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+            <Link to="/signup">Sign up</Link>
           </div>
         )}
       </div>

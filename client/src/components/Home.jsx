@@ -1,4 +1,4 @@
-import "../styles/HomePage.scss";
+import "../styles/Home.scss";
 import PetList from "./PetList";
 import PetModal from "../routes/PetModal";
 import Articles from "./Articles";
@@ -8,6 +8,8 @@ function Home({ addToFavorites, openModal, favorites, closeModal, selectedImage,
 
   return (
     <div className="home-page">
+        <p>Find your new best friend
+          Browse pets from our network of shelters and rescues</p>
       <div className="search-container">
         <h1>New Arrivals</h1>
         <SearchBar onSearch={searchPets} />

@@ -3,10 +3,9 @@ import { useApplicationData } from '../hooks/useApplicationData';
 import MyFavorites from "../components/MyFavorites";
 import TopNavBar from '../components/TopNavBar';
 import Signup from "../components/Signup";
-import Footer from '../components/Footer';
 import Login from '../components/Login';
 import Home from '../components/Home';
-import "../styles/Footer.scss";
+import "../styles/HomePage.scss";
 
 function HomePage() {
 

@@ -4,20 +4,19 @@ import "../styles/PetListItem.scss";
 
 function PetListItem({ pet, openModal, favorites, addToFavorites }) {
 
+  const isLongName = pet.name.length > 10;
+
   return (
-    <div className="pet-card">
+    <div className={`pet-card ${isLongName ? 'long-name' : ''}`}>
       <h2>{pet.name}</h2>
       {pet.photos.length > 0 ? (
-        
         <>
           <PhotoFavButton
             handleClick={() => { addToFavorites(pet.id); }}
             id={pet.id}
             favorites={favorites}
           />
-
           <img
-            // onClick={() => { handleClick(pet.id); }} in case more detailes want to be added
             onClick={() => {
               openModal(pet);
             }}

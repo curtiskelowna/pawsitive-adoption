@@ -14,9 +14,12 @@
   border-radius: 8px;
   padding: 16px;
   margin: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #829cd3;
-  box-shadow: 0 6px 15px 4px #000000;
+  box-shadow: 0 2px 8px 2px #000000;
+}
+
+.pet-card:hover{
+  transform: scale(.96);
 }
 
 .pet-card h2 {

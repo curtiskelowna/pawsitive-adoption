@@ -10,11 +10,8 @@ function Login({ login, isLoggedIn }) {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   let navigate = useNavigate();
 
-  const handleLogin = async () => {
-    if (isLoggedIn) {
-      navigate('/');
-      return;
-    }
+  const handleLogin = async (event) => {
+    event.preventDefault();
     setError('');
     setIsLoggingIn(true);
 
@@ -25,19 +22,16 @@ function Login({ login, isLoggedIn }) {
 
       const response = await axios.post('http://localhost:8080/login', { email, password: password });
 
-      // Handle successful login and token response
-      // Store the token in localStorage
       localStorage.setItem('token', response.data.token);
       const userData = jwtDecode(response.data.token);
       localStorage.setItem('userData', JSON.stringify(userData));
       login();
-      setIsLoggingIn(false);
-      // Navigate to the home page
       navigate('/');
     } catch (error) {
-      // Handle login error
       console.error('Login failed:', error.message);
-      setError(error.message); // Set the error message to display to the user
+      setError(error.message);
+    } finally {
+      setIsLoggingIn(false);
     }
   };
 
@@ -64,7 +58,7 @@ function Login({ login, isLoggedIn }) {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-        <button onClick={handleLogin} disabled={isLoggingIn}>
+        <button type="submit" onClick={(event) => handleLogin(event)} disabled={isLoggingIn}>
           {isLoggingIn ? 'Logging in...' : 'Log In'}
         </button>
       </form>

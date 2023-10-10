@@ -1,23 +1,31 @@
 .search-bar {
   display: flex;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 170px;
+  margin-right: 50px;
 }
 
 .search-bar input {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
+  background-color: #ccc;
+  color: black;
   border-radius: 4px;
   margin-right: 8px;
 }
 
 .search-bar button {
-  background-color: #007bff;
+  background-color: #0069da;
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
   cursor: pointer;
+}
+
+.search-bar button:hover{
+  color: black;
+  transform: scale(1.1);
 }
 
 h1{

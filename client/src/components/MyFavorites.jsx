@@ -8,28 +8,32 @@ function MyFavorites({ pets, favorites }) {
   return (
     <div className="favs-container">
       <h2>My Favorites</h2>
-      <div className="favs">
+      <div className="container">
         {favoritedPets.map((favoritePet) => (
-          <div className="flip-card" key={favoritePet.id}>
-            <div className="card-front">
-              <div>
-                {favoritePet.photos.length > 0 ? (
-                  <img className="card-image" src={favoritePet.photos[0].medium} alt={favoritePet.name} />
-                ) : (
-                  <img src="/images/cat-dog.jpg" alt="Default Photo" />
-                )}
-                <p>{favoritePet.name}</p>
-                <p>{favoritePet.age}</p>
-              </div>
-            </div>
-            <div className="card-back">
-              <div className="back-details">
-                <p>{favoritePet.type}</p>
-                <p>{favoritePet.status}</p>
-              </div>
-                <div className="btn">
-                  <button>Adopt me!</button>
+        <div className="flip-area">
+          <div className="flip-box" key={favoritePet.id}>
+            <div className="flip-box-inner">
+              <div className="flip-box-front">
+                <div>
+                  {favoritePet.photos.length > 0 ? (
+                    <img className="card-image" src={favoritePet.photos[0].medium} alt={favoritePet.name} />
+                  ) : (
+                    <img className="card-image" src="/images/cat-dog.jpg" alt="Default Photo" />
+                  )}
+                  <p>{favoritePet.name}</p>
+                  <p>{favoritePet.age}</p>
                 </div>
+              </div>
+                <div className="flip-box-back">
+                  <div className="back-details">
+                    <p>{favoritePet.type}</p>
+                    <p>{favoritePet.status}</p>
+                  </div>
+                  <div className="btn">
+                    <button>Adopt me!</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))}

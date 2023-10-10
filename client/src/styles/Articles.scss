@@ -1,7 +1,7 @@
 .article-body {
   display: flex;
   width: 100vw;
-  background-color: rgb(107, 107, 107);
+  background-color: rgb(70 146 255);
   border: 1px solid black;
   flex-direction: row;
   justify-content: center;
@@ -15,6 +15,7 @@
 }
 
 .article-link a {
+  display: flex;
   text-decoration: none;
   color: #000000;
 }

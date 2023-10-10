@@ -1,0 +1,24 @@
+.login-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  align-content: center;
+  height: 100%;
+  color: black;
+}
+
+.login-body-container {
+  margin-top: 99px;
+  width: 100%;
+  height: 66vh;
+}
+
+.btn-login {
+  display: flex;
+}
+
+h2{
+  color: black;
+}

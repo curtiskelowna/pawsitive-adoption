@@ -1,7 +1,7 @@
 .footer-container{
   display: flex;
-  margin-top: 250px;
-  height: 100px;
+  margin-top: 180px;
+  height: 85px;
   flex-wrap: wrap;
   flex-direction: column;
 }
@@ -20,6 +20,10 @@ span{
   display: flex;
   justify-content: space-between;
   color: black;
+}
+
+span:hover{
+  color: chartreuse;
 }
 
 .media-icons{
@@ -61,4 +65,13 @@ a.twitter {
 
 a.instagram {
   color: rgb(177, 0, 138);
+}
+
+#page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-container{
+  margin-top: auto;
 }

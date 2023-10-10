@@ -5,12 +5,9 @@ import TopNavBar from '../components/TopNavBar';
 import Signup from "../components/Signup";
 import Login from '../components/Login';
 import Home from '../components/Home';
-<<<<<<< HEAD
 import "../styles/Home.scss";
-=======
 import InfoPage from '../components/InfoPage';
-import "../styles/HomePage.scss";
->>>>>>> b0d900d306a33eb2a7ae60ad8ac0622bc12a8a44
+
 
 function HomePage() {
 

@@ -6,7 +6,7 @@ import Signup from "../components/Signup";
 import Login from '../components/Login';
 import Home from '../components/Home';
 import InfoPage from '../components/InfoPage';
-import "../styles/HomePage.scss";
+import "../styles/Home.scss";
 
 function HomePage() {
 

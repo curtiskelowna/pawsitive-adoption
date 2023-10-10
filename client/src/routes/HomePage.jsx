@@ -7,6 +7,7 @@ import Login from '../components/Login';
 import Home from '../components/HomeName';
 import "../styles/Home.scss";
 import InfoPage from '../components/InfoPage';
+import Footer from '../components/Footer';
 
 
 function HomePage() {
@@ -39,6 +40,7 @@ function HomePage() {
           <Route path="/info/contact" element={<InfoPage infoType="contact" />} />
           <Route path="/info/faq" element={<InfoPage infoType="faq" />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

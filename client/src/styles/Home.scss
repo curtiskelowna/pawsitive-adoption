@@ -1,22 +1,33 @@
 .home-page {
   margin: auto;
   width: 100vw;
-  height: 100%;
   color: rgb(0, 0, 0);
 }
 
-.h1 p{
-  margin-top: 85px;
-  padding: 20px;
-}
-
 .bg{
-background-color: rgb(188, 217, 255);
+  background-color: rgb(188, 217, 255);
 }
 
 .search-container {
   display: flex;
+  height: 150px;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
+}
+
+.banner{
+  height: 500px;
+  width: 100%;
+  background-Image: url(../images/bg-01.jpg);
+  background-Size: cover;
+  background-Repeat: no-repeat;
+}
+
+.welcome {
+  font-size: 20px;
+  text-align: justify;
+  margin: 5px 20px;
+  color: #333;
 }

@@ -1,14 +1,21 @@
 import "../styles/Footer.scss";
 import SocialFollow from "./SocialFollow";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
-
   return (
     <div className="footer-container">
       <div className="info-container">
-        <a href=""><span>About Us</span></a>
-        <a href=""><span>Contact Us</span></a>
-        <a href=""><span>FAQ</span></a>
+        <Link to="/info/about">
+          <span>About Us</span>
+        </Link>
+        <Link to="/info/contact">
+          <span>Contact Us</span>
+        </Link>
+        <Link to="/info/faq">
+          <span>FAQ</span>
+        </Link>
       </div>
       <div className="media-icons">
         <SocialFollow />
@@ -16,6 +23,5 @@ function Footer() {
     </div>
   );
 }
-
 
 export default Footer;

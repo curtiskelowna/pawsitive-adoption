@@ -3,14 +3,20 @@ const axios = require('axios');
 const router = express.Router();
 const { getToken } = require('../getToken');
 
+const favoritePets = [];
+
 const getPetFinderInstance = async () => {
-  const token = await getToken();
-  const axiosInstance = await axios.create({
-    baseURL: 'https://api.petfinder.com/v2',
-    timeout: 5000,
-    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
-  });
-  return axiosInstance;
+  try {
+    const token = await getToken();
+    const axiosInstance = axios.create({
+      baseURL: 'https://api.petfinder.com/v2',
+      timeout: 5000,
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
+    });
+    return axiosInstance;
+  } catch (error) {
+    throw error;
+  }
 };
 
 router.get('/', async (req, res) => {
@@ -22,7 +28,7 @@ router.get('/', async (req, res) => {
       query = axiosInstance.get(`/animals?type=${q}`);
     }
     const response = await query;
-    
+
     const pets = response.data;
     res.json(pets);
   } catch (err) {
@@ -32,7 +38,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/:id/favorite', (req, res)=>{
+router.post('/:id/favorite', (req, res) => {
   const { id } = req.params;
 
   // Checks if the pet ID is already in the favorites array

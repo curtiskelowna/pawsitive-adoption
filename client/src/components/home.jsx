@@ -32,4 +32,5 @@ function Home({ addToFavorites, openModal, favorites, closeModal, selectedImage,
   );
 }
 
+
 export default Home;

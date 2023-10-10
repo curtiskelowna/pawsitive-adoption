@@ -1,10 +1,11 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Outlet } from 'react-router-dom';
 import { useApplicationData } from '../hooks/useApplicationData';
 import MyFavorites from "../components/MyFavorites";
 import TopNavBar from '../components/TopNavBar';
 import Signup from "../components/Signup";
 import Login from '../components/Login';
 import Home from '../components/Home';
+import InfoPage from '../components/InfoPage';
 import "../styles/HomePage.scss";
 
 function HomePage() {
@@ -33,6 +34,9 @@ function HomePage() {
           <Route path="/MyFavorites" element={<MyFavorites favorites={favorites} pets={pets} />} />
           <Route path="/login" element={<Login login={login} isLoggedIn={isLoggedIn} />} />
           <Route path="/signup" element={<Signup login={login} isLoggedIn={isLoggedIn} />} />
+          <Route path="/info/about" element={<InfoPage infoType="about" />} />
+          <Route path="/info/contact" element={<InfoPage infoType="contact" />} />
+          <Route path="/info/faq" element={<InfoPage infoType="faq" />} />
         </Routes>
       </Router>
     </div>

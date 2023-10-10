@@ -13,7 +13,8 @@ function Signup({ login, isLoggedIn }) {
   const [isSigningUp, setIsSigningUp] = useState(false);
   let navigate = useNavigate();
 
-  const handleSignup = async () => {
+  const handleSignup = async (event) => {
+    event.preventDefault();
     if (isLoggedIn) {
       navigate('/');
       return;
@@ -52,6 +53,8 @@ function Signup({ login, isLoggedIn }) {
       // Handle registration error
       console.error('Registration failed:', error.message);
       setError(error.message); // Set the error message to display to the user
+    } finally {
+      setIsSigningUp(false);
     }
   };
 
@@ -96,8 +99,9 @@ function Signup({ login, isLoggedIn }) {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-      </form>
-        <button className="btn-container" onClick={handleSignup} disabled={isSigningUp}>
+         </form>
+        <button className="btn-container" type="submit" onClick={(event) => handleSignup(event)} disabled={isSigningUp}>
+      
           {isSigningUp ? 'Signing up...' : 'Sign Up'}
         </button>
     </div>

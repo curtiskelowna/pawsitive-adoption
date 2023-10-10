@@ -4,7 +4,7 @@ import MyFavorites from "../components/MyFavorites";
 import TopNavBar from '../components/TopNavBar';
 import Signup from "../components/Signup";
 import Login from '../components/Login';
-import Home from '../components/HomeName';
+import Home from '../components/Home';
 import "../styles/Home.scss";
 import InfoPage from '../components/InfoPage';
 import Footer from '../components/Footer';

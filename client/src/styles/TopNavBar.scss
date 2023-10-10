@@ -7,7 +7,7 @@
 }
 
 .top-nav-bar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -76,9 +76,21 @@ h4{
 
 .user-container a{
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  gap: 10px;
+  margin: 5px;
   padding: 10px;
-  color: black;
+  color: rgb(255, 255, 255);
+  background-color: #0069da;
+  border-radius: 10px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.user-container a:hover {
+  color: black;
+  transform: scale(1.1);
 }

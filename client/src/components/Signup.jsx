@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import "../styles/SignUp.scss";
 
 function Signup({ login, isLoggedIn }) {
   const [fullName, setFullName] = useState('');
@@ -58,11 +59,11 @@ function Signup({ login, isLoggedIn }) {
   };
 
   return (
-    <div>
+    <div className="signup-body-container">
       <h2>Signup</h2>
-      <form>
+      <form  className="signup-container">
         <div>
-          <label>Full Name:</label>
+          <label>Full Name: </label>
           <input
             type="text"
             placeholder="Full Name"
@@ -71,7 +72,7 @@ function Signup({ login, isLoggedIn }) {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label>Email: </label>
           <input
             type="email"
             placeholder="Email"
@@ -80,7 +81,7 @@ function Signup({ login, isLoggedIn }) {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Password: </label>
           <input
             type="password"
             placeholder="Password"
@@ -89,7 +90,7 @@ function Signup({ login, isLoggedIn }) {
           />
         </div>
         <div>
-          <label>Confirm Password:</label>
+          <label>Confirm Password: </label>
           <input
             type="password"
             placeholder="Confirm Password"
@@ -98,10 +99,11 @@ function Signup({ login, isLoggedIn }) {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-        <button type="submit" onClick={(event) => handleSignup(event)} disabled={isSigningUp}>
+         </form>
+        <button className="btn-container" type="submit" onClick={(event) => handleSignup(event)} disabled={isSigningUp}>
+      
           {isSigningUp ? 'Signing up...' : 'Sign Up'}
         </button>
-      </form>
     </div>
   );
 }

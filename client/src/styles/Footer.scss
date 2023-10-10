@@ -1,7 +1,7 @@
 .footer-container{
   display: flex;
-  margin-top: 250px;
-  height: 100px;
+  margin-top: 180px;
+  height: 85px;
   flex-wrap: wrap;
   flex-direction: column;
 }
@@ -22,10 +22,13 @@ span{
   color: black;
 }
 
+span:hover{
+  color: chartreuse;
+}
+
 .media-icons{
   display: flex;
   height: 200px;
-  width: 50vw;
   justify-content: flex-end;
   flex-direction: row;
   align-items: center;
@@ -61,4 +64,14 @@ a.twitter {
 
 a.instagram {
   color: rgb(177, 0, 138);
+}
+
+#page-container {
+  display: flex;
+  flex-direction: column;
+  background-color:rgb(47, 137, 248);
+}
+
+.footer-container{
+  margin-top: auto;
 }

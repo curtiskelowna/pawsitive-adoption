@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
+import "../styles/Login.scss"
 
 function Login({ login, isLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -36,11 +37,11 @@ function Login({ login, isLoggedIn }) {
   };
 
   return (
-    <div>
+    <div className="login-body-container">
       <h2>Login</h2>
-      <form>
+      <form className="login-container">
         <div>
-          <label>Email:</label>
+          <label>Email: </label>
           <input
             type="email"
             placeholder="Email"
@@ -49,7 +50,7 @@ function Login({ login, isLoggedIn }) {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Password: </label>
           <input
             type="password"
             placeholder="Password"
@@ -58,7 +59,7 @@ function Login({ login, isLoggedIn }) {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-        <button type="submit" onClick={(event) => handleLogin(event)} disabled={isLoggingIn}>
+        <button className="btn-login" type="submit" onClick={(event) => handleLogin(event)} disabled={isLoggingIn}>
           {isLoggingIn ? 'Logging in...' : 'Log In'}
         </button>
       </form>

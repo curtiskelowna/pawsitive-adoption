@@ -3,11 +3,10 @@ import { useApplicationData } from '../hooks/useApplicationData';
 import MyFavorites from "../components/MyFavorites";
 import TopNavBar from '../components/TopNavBar';
 import Signup from "../components/Signup";
-import Footer from '../components/Footer';
 import Login from '../components/Login';
 import Home from '../components/Home';
 import InfoPage from '../components/InfoPage';
-import "../styles/Footer.scss";
+import "../styles/HomePage.scss";
 
 function HomePage() {
 
@@ -39,7 +38,6 @@ function HomePage() {
           <Route path="/info/contact" element={<InfoPage infoType="contact" />} />
           <Route path="/info/faq" element={<InfoPage infoType="faq" />} />
         </Routes>
-        <Footer />
       </Router>
     </div>
   );

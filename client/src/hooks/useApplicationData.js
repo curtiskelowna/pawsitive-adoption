@@ -71,7 +71,7 @@ export function useApplicationData() {
     axios.get(`http://localhost:8080/pets?q=${search}`)
       .then(json => json.data)
       .then(pets => {
-        dispatch({ type: 'LOAD_PETS', pets: pets.animals.filter((pet) => pet.photos.length > 0) });
+        dispatch({ type: 'LOAD_PETS', pets: pets.animals });
         dispatch({ type: 'SEARCH_PETS' });
       });
   };

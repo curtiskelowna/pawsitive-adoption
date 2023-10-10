@@ -5,7 +5,7 @@ import TopNavBar from '../components/TopNavBar';
 import Signup from "../components/Signup";
 import Login from '../components/Login';
 import Home from '../components/Home';
-import "../styles/HomePage.scss";
+import "../styles/Home.scss";
 
 function HomePage() {
 

@@ -23,7 +23,7 @@ function Login({ login, isLoggedIn }) {
       }
 
       const response = await axios.post('http://localhost:8080/login', { email, password: password });
-
+      console.log('response', response.data.token);
       localStorage.setItem('token', response.data.token);
       const userData = jwtDecode(response.data.token);
       localStorage.setItem('userData', JSON.stringify(userData));

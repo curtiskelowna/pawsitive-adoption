@@ -48,4 +48,36 @@ const getUserFullNameById = async (userId) => {
   }
 };
 
-module.exports = { createUser, getUserByEmail, getUserFullNameById };
+// Function to get a user by ID
+const getUserById = async (userId) => {
+  const query = 'SELECT * FROM users WHERE id = $1';
+  try {
+    const result = await db.query(query, [userId]);
+    return result.rows[0];
+  } catch (error) {
+    console.error('Error fetching user full name by ID:', error);
+    throw new Error('Error fetching user full name by ID');
+  }
+};
+
+async function updateUser(userId, userData) {
+  // connect to your database
+  console.log('updateUser');
+  // build your update statement
+  let updateUserSql = `UPDATE users SET `;
+
+  Object.keys(userData).forEach((key, index, array) => {
+    updateUserSql += `${key} = '${userData[key]}'`;
+    if (index !== array.length - 1) {
+      updateUserSql += `, `;
+    }
+  });
+
+  updateUserSql += ` WHERE id = ${userId} RETURNING *;`;
+  console.log(updateUserSql);
+  // execute the update statement
+  const updatedUser = await db.query(updateUserSql);
+  return updatedUser;
+}
+
+module.exports = { createUser, getUserByEmail, getUserFullNameById, updateUser, getUserById };

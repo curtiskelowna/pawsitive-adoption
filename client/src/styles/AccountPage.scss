@@ -1,14 +1,61 @@
-form {
-  margin-bottom: 20px;
+// .account-page {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   height: 85vh;
+//   padding: 20px;
+// }
+
+// .account-page h2 {
+//   color: black;
+// }
+
+// form {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: wrap;
+//   gap: 10px;
+//   align-items: flex-start;
+//   align-content: center;
+//   width: 500px;
+//   height: 250px;
+//   color: rgb(54, 54, 54);
+//   background-color: white;
+//   border-radius: 100px;
+//   justify-content: center;
+// }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
 }
 
-.saved-info {
-  margin-top: 20px;
-  border: 1px solid #ccc;
+label {
+  color: black;
+  font-weight: bold;
+}
+
+
+button {
+  width: 100px;
   padding: 10px;
+  background-color: #fd923a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.saved-photo {
-  max-width: 100%;
-  height: auto;
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #f78900;
 }

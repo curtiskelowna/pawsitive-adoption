@@ -9,7 +9,7 @@ function MyFavorites({ pets, favorites }) {
     <div className="favs-container">
       <h2>My Favorites</h2>
       <h3>Hi there, future human of mine! 🐾 I can't wait to be your loyal companion, share endless cuddles, and brighten your every day. Let's make some wonderful memories together!  🐶🐱❤️</h3>
-      <div className="container">
+      <div className="pets-container">
         {favoritedPets.map((favoritePet) => (
           <div className="flip-area">
             <div className="flip-box" key={favoritePet.id}>

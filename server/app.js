@@ -6,7 +6,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const pool = require('./configs/db.config');
-const { createUser, getUserByEmail } = require('./db/queries/users');
+const { createUser, getUserByEmail, getUserById, updateUser } = require('./db/queries/users');
 const axios = require('axios');
 const { getToken } = require('./getToken');
 
@@ -101,6 +101,62 @@ app.get('/api/getToken', async (req, res) => {
     res.json({ access_token: token });
   } catch (error) {
     res.status(500).json({ error: 'Failed to retrieve access token' });
+  }
+});
+
+// Route to get user data
+app.get('/api/user/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+    console.log(`Received request for user: ${userId}`);
+    const user = await getUserById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error('Error fetching user data by ID:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.put('/api/user/:id', async (req, res) => {
+  try {
+
+    const userId = req.params.id;
+    // Update the userData
+    const userData = req.body; // Data sent from the client
+    const updatedUser = await updateUser(userId, userData);
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(updatedUser);
+  } catch (error) {
+    console.error('Error updating user data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/user/:id', async (req, res) => {
+  try {
+    console.log('req.body', req.body);
+    const userId = req.params.id;
+    // Update the userData
+    const userData = req.body; // Data sent from the client
+    const updatedUser = await updateUser(userId, userData);
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(updatedUser);
+  } catch (error) {
+    console.error('Error updating user data:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

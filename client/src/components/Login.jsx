@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
-import "../styles/Login.scss"
+import "../styles/Login.scss";
 
 function Login({ login, isLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -22,7 +22,7 @@ function Login({ login, isLoggedIn }) {
       }
 
       const response = await axios.post('http://localhost:8080/login', { email, password: password });
-
+      console.log('response', response.data.token);
       localStorage.setItem('token', response.data.token);
       const userData = jwtDecode(response.data.token);
       localStorage.setItem('userData', JSON.stringify(userData));

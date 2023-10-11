@@ -9,18 +9,14 @@ function AccountPage() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Fetch user data and populate the form when the component mounts
   useEffect(() => {
     const userId = JSON.parse(localStorage.getItem('userData'))['id'];
-    console.log('userId', userId);
-    axios.get(`http://localhost:8080/api/user/${userId}`
-      // headers: {
-      //   'Authorization': `Bearer ${localStorage.getItem('token')}`
-      // }
-    )
+    axios.get(`http://localhost:8080/api/user/${userId}`)
       .then((response) => {
-        console.log('User data:', response.data);
         const userData = response.data;
         setFullName(userData.fullname);
         setAnimalPreference(userData.animalpreference);
@@ -44,17 +40,16 @@ function AccountPage() {
       phoneNumber,
       postalCode
     })
-      // }, {
-      //   headers: {
-      //     'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
-      //   }
-      // })
       .then(() => {
         setIsLoading(false);
+        setSuccessMessage('Profile Updated!');
+        setErrorMessage('');
         // Handle success
       })
       .catch((error) => {
         setIsLoading(false);
+        setErrorMessage('Error updating user data');
+        setSuccessMessage('');
         console.error('Error updating user data:', error);
       });
   };
@@ -66,6 +61,8 @@ function AccountPage() {
   return (
     <div className="account-page">
       <h2>My Account</h2>
+      {successMessage && <div className="success-message">{successMessage}</div>}
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form>
         <div className="form-group">
           <label htmlFor="fullName">Full Name</label>

@@ -63,7 +63,7 @@ function AccountPage() {
       <h2>My Account</h2>
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
-      <form>
+      <form className="form-container">
         <div className="form-group">
           <label htmlFor="fullName">Full Name</label>
           <input
@@ -72,8 +72,6 @@ function AccountPage() {
             value={fullname}
             onChange={(e) => setFullName(e.target.value)}
           />
-        </div>
-        <div className="form-group">
           <label htmlFor="animalPreference">Animal Preference</label>
           <input
             type="text"
@@ -81,8 +79,6 @@ function AccountPage() {
             value={animalPreference}
             onChange={(e) => setAnimalPreference(e.target.value)}
           />
-        </div>
-        <div className="form-group">
           <label htmlFor="adoptionStatus">Adoption Status</label>
           <select
             id="adoptionStatus"
@@ -92,8 +88,6 @@ function AccountPage() {
             <option value="interested">Interested</option>
             <option value="notLooking">Not Looking Right Now</option>
           </select>
-        </div>
-        <div className="form-group">
           <label htmlFor="phoneNumber">Phone Number</label>
           <input
             type="tel"
@@ -101,8 +95,6 @@ function AccountPage() {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
-        </div>
-        <div className="form-group">
           <label htmlFor="postalCode">Postal Code/Zip Code</label>
           <input
             type="text"
@@ -111,14 +103,15 @@ function AccountPage() {
             onChange={(e) => setPostalCode(e.target.value)}
           />
         </div>
+      </form>
         <button
+          className="account-btn"
           type="button"
           onClick={handleUpdate}
           disabled={isLoading}
         >
           Update
         </button>
-      </form>
     </div>
   );
 

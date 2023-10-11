@@ -1,14 +1,70 @@
-form {
-  margin-bottom: 20px;
+.account-page {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/dog01.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-.saved-info {
-  margin-top: 20px;
-  border: 1px solid #ccc;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+  align-content: center;
+  width: 500px;
+  height: 250px;
+  color: rgb(54, 54, 54);
+  background-color: white;
+  border-radius: 100px;
+  justify-content: center;
+}
+
+.account-btn{
+  display: flex;
+  padding: 20px;
+  width: 10%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+}
+
+label {
+  color: black;
+  font-weight: bold;
+}
+
+
+button {
+  width: 100px;
   padding: 10px;
+  background-color: #fd923a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.saved-photo {
-  max-width: 100%;
-  height: auto;
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #f78900;
 }

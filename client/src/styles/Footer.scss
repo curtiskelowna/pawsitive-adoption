@@ -1,53 +1,56 @@
-.footer-container{
+.footer-container {
   display: flex;
   height: 85px;
   flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.info-container{
-  display: flex;
-  height: 200px;
-  width: 50vw;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 25px;
-}
-
-span{
-  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  color: black;
+  align-items: center;
+  background-color: rgb(47, 137, 248);
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
 }
 
-span:hover{
+.info-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+span {
+  color: white;
+  text-decoration: none;
+  transition: transform 250ms;
+}
+
+span:hover {
   color: #fd923a;
   transform: scale(1.05);
 }
 
-.media-icons{
+.media-icons {
   display: flex;
-  height: 200px;
-  justify-content: flex-end;
   flex-direction: row;
+  gap: 10px;
   align-items: center;
-  padding-left: 25px;
 }
 
 .social-container {
-  padding: 25px 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 a.social {
-  margin: 0 1rem;
+  text-decoration: none;
+  color: #000; 
   transition: transform 250ms;
   display: inline-block;
 }
 
 a.social:hover {
   transform: translateY(-2px);
-  color: #fd923a;;
+  color: #fd923a;
 }
 
 a.youtube {
@@ -64,9 +67,4 @@ a.twitter {
 
 a.instagram {
   color: rgb(177, 0, 138);
-}
-
-.footer-container{
-  margin-top: auto;
-  background-color:rgb(47, 137, 248);
 }

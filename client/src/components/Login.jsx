@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 import "../styles/Login.scss";
-import Articles from './Articles';
 
 function Login({ login, isLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -68,7 +67,6 @@ function Login({ login, isLoggedIn }) {
         </button>
         </div>
       </form>
-      <Articles />
     </div>
   );
 }

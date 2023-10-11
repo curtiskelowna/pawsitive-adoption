@@ -1,84 +1,40 @@
-:root {
-  margin: 0;
-  width: 100vw;
-  overflow-x: hidden;
-  --background-color: #5f5f5f;
-  --text-color: #000000;
-}
 
 .top-nav-bar {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 8px;
+  padding: 8px 20px;
   align-items: center;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
   box-shadow: 0 4px 6px -6px #222;
-  height: 85px;
-  width: 100vw;
+  height: 100px;
+  width: calc(100% - 40px);
   background-color: rgb(47, 137, 248);
   z-index: 1;
 }
 
-.top-nav-bar__logo {
-  font-weight: 500;
-  font-size: 24px;
-  color: #111;
-  text-underline-position: auto;
-  margin-left: 24px;
-  background-image: url("images/Logo.png");
-  background-size: cover;
-  background-position: center;
-  width: 100px;
-  height: 100px;
-}
-
-.page-name{
+.page-name {
   font-family: 'Chewy', cursive;
   font-size: 36px;
   color: #fd923a;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: 2px;
-  margin: 0;
-  }
+}
 
 .user {
   display: flex;
-  width: 230px;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-container {
+  display: flex;
+  gap: 10px;
   align-items: center;
 }
 
-h1{
-  margin-top: 85px;
-  padding: 20px;
-}
-
-h4{
-  display: flex;
-}
-
-/* Dark mode */
-.dark-mode {
-  background-color: #363636;
-  color: #ffffff;
-}
-
-.body {
-  width: 100vw;
-  height: 100%;
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-.user-container a{
+.user-container a {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -95,6 +51,34 @@ h4{
 }
 
 .user-container a:hover {
-  color: black;
+  color: rgb(43, 43, 43);
+  transform: scale(1.1);
+}
+
+
+.user h2 {
+  margin: 0;
+  padding: 10px;
+  color: white;
+}
+
+.logout-btn {
+  cursor: pointer;
+  color: white;
+  text-decoration: underline;
+}
+
+
+.user-container a.login, .user-container a.signup {
+  padding: 10px 20px;
+  background-color: #0069da;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.user-container a.login:hover, .user-container a.signup:hover {
+  background-color: #0049a5;
   transform: scale(1.1);
 }

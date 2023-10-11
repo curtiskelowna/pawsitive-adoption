@@ -1,6 +1,5 @@
 .footer-container{
   display: flex;
-  margin-top: 180px;
   height: 85px;
   flex-wrap: wrap;
   flex-direction: column;
@@ -23,7 +22,8 @@ span{
 }
 
 span:hover{
-  color: chartreuse;
+  color: #fd923a;
+  transform: scale(1.05);
 }
 
 .media-icons{
@@ -47,7 +47,7 @@ a.social {
 
 a.social:hover {
   transform: translateY(-2px);
-  color: chartreuse;
+  color: #fd923a;;
 }
 
 a.youtube {
@@ -59,19 +59,14 @@ a.facebook {
 }
 
 a.twitter {
-  color: #000000;
+  color: #131313;
 }
 
 a.instagram {
   color: rgb(177, 0, 138);
 }
 
-#page-container {
-  display: flex;
-  flex-direction: column;
-  background-color:rgb(47, 137, 248);
-}
-
 .footer-container{
   margin-top: auto;
+  background-color:rgb(47, 137, 248);
 }

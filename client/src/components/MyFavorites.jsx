@@ -21,8 +21,6 @@ function MyFavorites({ pets, favorites }) {
                     ) : (
                       <img className="card-image" src="/images/cat-dog.jpg" alt="Default Photo" />
                     )}
-                    {/* <p>{favoritePet.name}</p>
-                    <p>{favoritePet.age}</p> */}
                   </div>
                 </div>
                 <div className="flip-box-back">

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
-import "../styles/Login.scss"
+import "../styles/Login.scss";
+import Articles from './Articles';
 
 function Login({ login, isLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -38,9 +39,13 @@ function Login({ login, isLoggedIn }) {
 
   return (
     <div className="login-body-container">
+      <div className="login-images">
+        <div className="pets-01"></div>
+        <div className="pets-02"></div>
+      </div>
       <h2>Login</h2>
-      <form className="login-container">
-        <div>
+      <form>
+        <div className="login-container">
           <label>Email: </label>
           <input
             type="email"
@@ -48,8 +53,6 @@ function Login({ login, isLoggedIn }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
-        <div>
           <label>Password: </label>
           <input
             type="password"
@@ -57,12 +60,15 @@ function Login({ login, isLoggedIn }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {error && <p className="error-message">{error}</p>}
         </div>
-        {error && <p className="error-message">{error}</p>}
-        <button className="btn-login" type="submit" onClick={(event) => handleLogin(event)} disabled={isLoggingIn}>
+        <div className="btn-login">
+        <button type="submit" onClick={(event) => handleLogin(event)} disabled={isLoggingIn}>
           {isLoggingIn ? 'Logging in...' : 'Log In'}
         </button>
+        </div>
       </form>
+      <Articles />
     </div>
   );
 }

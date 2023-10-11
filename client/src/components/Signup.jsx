@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import "../styles/SignUp.scss";
 
+
 function Signup({ login, isLoggedIn }) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -61,8 +62,8 @@ function Signup({ login, isLoggedIn }) {
   return (
     <div className="signup-body-container">
       <h2>Signup</h2>
-      <form  className="signup-container">
-        <div>
+      <form >
+        <div className="signup-container">
           <label>Full Name: </label>
           <input
             type="text"
@@ -70,8 +71,6 @@ function Signup({ login, isLoggedIn }) {
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
           />
-        </div>
-        <div>
           <label>Email: </label>
           <input
             type="email"
@@ -79,8 +78,6 @@ function Signup({ login, isLoggedIn }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
-        <div>
           <label>Password: </label>
           <input
             type="password"
@@ -88,8 +85,6 @@ function Signup({ login, isLoggedIn }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
-        <div>
           <label>Confirm Password: </label>
           <input
             type="password"
@@ -99,11 +94,13 @@ function Signup({ login, isLoggedIn }) {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-         </form>
-        <button className="btn-container" type="submit" onClick={(event) => handleSignup(event)} disabled={isSigningUp}>
-      
-          {isSigningUp ? 'Signing up...' : 'Sign Up'}
-        </button>
+        <div className="btn-signup">
+          <button type="submit" onClick={(event) => handleSignup(event)} disabled={isSigningUp}>
+            {isSigningUp ? 'Signing up...' : 'Sign Up'}
+          </button>
+        </div>
+      </form>
+
     </div>
   );
 }

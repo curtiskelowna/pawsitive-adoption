@@ -37,9 +37,7 @@ function HomePage() {
           <Route path="/login" element={<Login login={login} isLoggedIn={isLoggedIn} />} />
           <Route path="/signup" element={<Signup login={login} isLoggedIn={isLoggedIn} />} />
         </Routes>
-        <div id="page-container">
         <Footer />
-      </div>
       </Router>
     </div>
   );

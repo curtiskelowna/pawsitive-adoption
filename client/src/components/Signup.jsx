@@ -60,10 +60,10 @@ function Signup({ login, isLoggedIn }) {
   };
 
   return (
-    <div className="signup-body-container">
-      <h2>Signup</h2>
+    <div className="signup-body-container background-image">
       <form >
         <div className="signup-container">
+          <h2>Signup</h2>
           <label>Full Name: </label>
           <input
             type="text"

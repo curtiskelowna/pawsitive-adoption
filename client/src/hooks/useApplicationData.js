@@ -76,9 +76,10 @@ export function useApplicationData() {
       });
   };
 
-  const login = () => {
-    dispatch({ type: 'LOGIN' });
+  const login = (isLoggedIn) => {
+    dispatch({ type: 'LOGIN', isLoggedIn });
   };
+
 
   useEffect(() => {
     loadPets();

@@ -24,14 +24,14 @@ const runMigrations = async db => {
   }
 };
 
-const runSeeds = async db => {
-  const seeds = await fs.readdir(SEEDS_PATH);
-  for (seed of seeds) {
-    const sql = await fs.readFile(`${SEEDS_PATH}/${seed}`, 'utf8');
-    console.log(`\t Running ${seed}`);
-    await db.query(sql);
-  }
-};
+// const runSeeds = async db => {
+//   const seeds = await fs.readdir(SEEDS_PATH);
+//   for (seed of seeds) {
+//     const sql = await fs.readFile(`${SEEDS_PATH}/${seed}`, 'utf8');
+//     console.log(`\t Running ${seed}`);
+//     await db.query(sql);
+//   }
+// };
 
 const resetDB = async () => {
   let client = null;
@@ -46,7 +46,7 @@ const resetDB = async () => {
     await runMigrations(client);
     console.log('\n');
     console.log("-- Running Seeds --\n");
-    await runSeeds(client);
+    // await runSeeds(client);
     console.log('\n');
     console.log("-- COMPLETED --");
 

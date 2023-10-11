@@ -4,11 +4,11 @@ import MyFavorites from "../components/MyFavorites";
 import TopNavBar from '../components/TopNavBar';
 import Signup from "../components/Signup";
 import Login from '../components/Login';
-import Home from '../components/HomeName';
+import Home from '../components/Home';
 import "../styles/Home.scss";
 import InfoPage from '../components/InfoPage';
 import Footer from '../components/Footer';
-
+import AccountPage from '../components/AccountPage';
 
 function HomePage() {
 
@@ -34,6 +34,7 @@ function HomePage() {
         <Routes>
           <Route path="/" element={<Home favorites={favorites} addToFavorites={addToFavorites} isModalOpen={isModalOpen} pets={pets} selectedImage={selectedImage} openModal={openModal} closeModal={closeModal} setPets={setPets} searchPets={searchPets} loading={searchLoading} />} />
           <Route path="/MyFavorites" element={<MyFavorites favorites={favorites} pets={pets} />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="/login" element={<Login login={login} isLoggedIn={isLoggedIn} />} />
           <Route path="/signup" element={<Signup login={login} isLoggedIn={isLoggedIn} />} />
           <Route path="/info/about" element={<InfoPage infoType="about" />} />

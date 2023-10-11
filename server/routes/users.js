@@ -32,4 +32,29 @@ router.get('/getUserFullName/:userId', async (req, res) => {
   }
 });
 
+// Route to update user data
+router.put('/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const { fullName, animalPreference, adoptionStatus } = req.body;
+
+    const query = `
+      UPDATE users
+      SET
+        fullName = $1,
+        animalPreference = $2,
+        adoptionStatus = $3
+      WHERE
+        id = $4
+    `;
+
+    await db.query(query, [fullName, animalPreference, adoptionStatus, userId]);
+
+    res.status(204).send();
+  } catch (error) {
+    console.error('Error updating user data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;

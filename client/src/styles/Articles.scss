@@ -1,26 +1,43 @@
 .article-body {
   display: flex;
-  width: 100vw;
-  background-color: rgb(70 146 255);
-  border: 1px solid black;
-  flex-direction: row;
+  width: 100%;
+  background-color: #4672FF;
+  border: 1px solid #000;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .article {
-  width: 500px;
+  width: 45%;
   margin: 10px;
-  padding: 5px;
-  border: 1px solid black;
+  padding: 20px;
+  border: 1px solid #000;
+  background-color: #FFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.article h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #4672FF;
 }
 
 .article-link a {
-  display: flex;
+  display: block;
   text-decoration: none;
-  color: #000000;
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 15px;
 }
 
 .article-link a:hover {
   text-decoration: underline;
-  color: black;
+  color: #4672FF;
+}
+
+@media (max-width: 768px) {
+  .article {
+    width: 100%;
+  }
 }

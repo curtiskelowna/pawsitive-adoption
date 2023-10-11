@@ -1,7 +1,10 @@
 .home-page {
+  display: flex;
   margin: auto;
   width: 100vw;
   color: rgb(0, 0, 0);
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .bg{
@@ -11,23 +14,33 @@
 .search-container {
   display: flex;
   height: 150px;
-  width: 100%;
+  width: 98%;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.banner{
-  height: 500px;
+.banner-container{
+  height: 450px;
   width: 100%;
-  background-Image: url(../images/bg-01.jpg);
-  background-Size: cover;
-  background-Repeat: no-repeat;
 }
+
+.banner {
+ border-radius: 24px;
+  width: 800px;
+  height: 250px;
+  background-image: url(../images/bg-01.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -80px;
+  margin: 180px auto;
+  text-align: center;
+}
+
 
 .welcome {
   font-size: 20px;
   text-align: justify;
-  margin: 5px 20px;
+  margin: 5px 50px;
   color: #333;
 }

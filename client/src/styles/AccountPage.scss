@@ -10,20 +10,31 @@
   background-position: center;
 }
 
-// form {
-//   display: flex;
-//   flex-direction: column;
-//   flex-wrap: wrap;
-//   gap: 10px;
-//   align-items: flex-start;
-//   align-content: center;
-//   width: 500px;
-//   height: 250px;
-//   color: rgb(54, 54, 54);
-//   background-color: white;
-//   border-radius: 100px;
-//   justify-content: center;
-// }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+  align-content: center;
+  width: 500px;
+  height: 250px;
+  color: rgb(54, 54, 54);
+  background-color: white;
+  border-radius: 100px;
+  justify-content: center;
+}
+
+.account-btn{
+  display: flex;
+  padding: 20px;
+  width: 10%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
 
 .form-group {
   display: flex;

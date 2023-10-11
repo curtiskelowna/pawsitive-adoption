@@ -66,7 +66,7 @@ function AccountPage() {
   return (
     <div className="account-page">
       <h2>My Account</h2>
-      <form>
+      <form className="form-container">
         <div className="form-group">
           <label htmlFor="fullName">Full Name</label>
           <input
@@ -108,6 +108,7 @@ function AccountPage() {
         </div>
       </form>
         <button
+          className="account-btn"
           type="button"
           onClick={handleUpdate}
           disabled={isLoading}

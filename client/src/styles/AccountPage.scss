@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(../images/dog01.jpg);
+  background-image: url(../images/cat04.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -17,8 +17,8 @@
   gap: 10px;
   align-items: flex-start;
   align-content: center;
-  width: 500px;
-  height: 250px;
+  width: 400px;
+  height: 300px;
   color: rgb(54, 54, 54);
   background-color: white;
   border-radius: 100px;
@@ -52,7 +52,7 @@ label {
 button {
   width: 100px;
   padding: 10px;
-  background-color: #fd923a;
+  // background-color: #fd923a;
   color: white;
   border: none;
   border-radius: 5px;

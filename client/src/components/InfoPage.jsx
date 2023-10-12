@@ -6,7 +6,8 @@ function InfoPage({ infoType }) {
   switch (infoType) {
     case 'about':
       content = (
-        <div>
+        <div className="footer-info">
+          <div className="info">
           <h1>About Us</h1>
           <p>
             Welcome to the heart and soul of our pet-loving community! At Pawsitive Adoptions, we're passionate about connecting you with your future furry family members and providing a loving home for every pet in need.
@@ -17,19 +18,26 @@ function InfoPage({ infoType }) {
           <p>
             Thank you for choosing Pawsitive Adoptions as your trusted companion on your pet adoption journey. Together, we'll make a positive impact on the lives of pets and the people who love them.
           </p>
+          </div>
         </div>
       );
       break;
     case 'contact':
-      content = <div>
+      content =(
+      <div className="footer-info">
+      <div className="info">
         <h1>Contact Us</h1>
         <p>
           If you have a question about a specific pet or policies at a shelter, please contact them directly. Asking Petfinder will delay your search for a pet, since each shelter manages its own pet list and information on Pawsitive Adoptions.
         </p>
-      </div>;
+        </div>
+      </div>
+        );
       break;
     case 'faq':
-      content = <div>
+      content =(
+        <div className="footer-info">
+        <div className="info">
         <h1>FAQ</h1>
         <h2>How do I adopt a pet?</h2>
         <p>
@@ -43,7 +51,9 @@ function InfoPage({ infoType }) {
         <p>
           The best way to decide if you should adopt a dog or a cat is to consider your lifestyle and preferences. For example, if you're an active person who enjoys the outdoors, a dog might be a better fit for you. If you're more of a homebody, a cat might be a better fit. If you have children, you should also consider their needs and preferences when deciding whether to adopt a dog or a cat.
         </p>
-      </div>;
+        </div>
+      </div>
+      );
       break;
     default:
       content = <div>Select an option from the footer.</div>;

@@ -38,11 +38,7 @@ function Login({ login, isLoggedIn }) {
 
   return (
     <div className="login-body-container">
-      <div className="login-images">
-        <div className="pets-01"></div>
-        <div className="pets-02"></div>
-      </div>
-      <h2>Login</h2>
+      <h1>Login</h1>
       <form>
         <div className="login-container">
           <label>Email: </label>
@@ -59,8 +55,8 @@ function Login({ login, isLoggedIn }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {error && <p className="error-message">{error}</p>}
         </div>
+          {error && <p className="error-message">{error}</p>}
         <div className="btn-login">
         <button type="submit" onClick={(event) => handleLogin(event)} disabled={isLoggingIn}>
           {isLoggingIn ? 'Logging in...' : 'Log In'}

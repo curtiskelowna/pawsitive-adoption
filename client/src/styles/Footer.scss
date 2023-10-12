@@ -39,6 +39,7 @@ span:hover {
   display: flex;
   flex-direction: row;
   gap: 20px;
+  align-items: flex-end;
 }
 
 a.social {
@@ -67,4 +68,28 @@ a.twitter {
 
 a.instagram {
   color: rgb(177, 0, 138);
+}
+
+.info-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url(../images/cat02.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.footer-info {
+  max-width: 50%;
+}
+
+.info {
+  margin: 0;
+  padding: 20px;
+  color: #131313;
+  background-color: rgb(224, 224, 224);
+  border-radius: 24px;
+  opacity: 90%;
 }

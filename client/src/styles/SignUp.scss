@@ -5,8 +5,8 @@
   gap: 10px;
   align-items: flex-start;
   align-content: center;
-  width: 500px;
-  height: 250px;
+  width: 400px;
+  height: 270px;
   color: rgb(54, 54, 54);
   background-color: white;
   border-radius: 100px;
@@ -17,7 +17,7 @@
   display: flex;
   margin-top: 99px;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   padding-top: 20px;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,7 @@ form{
 }
 
 .background-image {
-background-image: url('https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMHB1cHBpZXMlMjBhbmQlMjBraXR0ZW5zfGVufDB8fDB8fHww&w=1000&q=80');
-background-size: cover;
-background-position: center;
+  background-image: url(../images/cat.jpg);
+  background-size: cover;
+  background-position: center;
 }

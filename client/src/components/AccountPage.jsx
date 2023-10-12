@@ -61,8 +61,7 @@ function AccountPage() {
   return (
     <div className="account-page">
       <h2>My Account</h2>
-      {successMessage && <div className="success-message">{successMessage}</div>}
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
+
       <form className="form-container">
         <div className="form-group">
           <label htmlFor="fullName">Full Name</label>
@@ -102,16 +101,18 @@ function AccountPage() {
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
           />
+          {successMessage && <div className="success-message">{successMessage}</div>}
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
         </div>
       </form>
-        <button
-          className="account-btn"
-          type="button"
-          onClick={handleUpdate}
-          disabled={isLoading}
-        >
-          Update
-        </button>
+      <button
+        className="account-btn"
+        type="button"
+        onClick={handleUpdate}
+        disabled={isLoading}
+      >
+        Update
+      </button>
     </div>
   );
 

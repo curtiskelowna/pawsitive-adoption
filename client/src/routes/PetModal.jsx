@@ -26,8 +26,8 @@ const PetModal = ({ closeModal, selectedImage, favorites, addToFavorites }) => {
       </button>
       <div className="modal-content">
         <div className="photo-list-item">
-          <PhotoFavButton handleClick={addToFavorites} favorites={favorites} id={selectedImage.id} />
           <div className="image-container">
+            <PhotoFavButton handleClick={addToFavorites} favorites={favorites} id={selectedImage.id} />
             <img
               className="pet-image"
               src={selectedImage.photos.length > 0 ? selectedImage.photos[currentImageIndex].medium : "/images/cat-dog.jpg"}
@@ -49,6 +49,7 @@ const PetModal = ({ closeModal, selectedImage, favorites, addToFavorites }) => {
             <p>Gender: {selectedImage.gender}</p>
             <p>Status: {selectedImage.status}</p>
           </div>
+          <button className="adopt-button">Adopt Me</button>
         </div>
         <div className="contact-container">
           <p>Contact information:</p>

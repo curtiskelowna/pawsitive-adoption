@@ -60,3 +60,11 @@ Pawsitive Adoptions is a full stack web application built with React Vite on the
 8. Logout by pressing logout button in header (automatically sent to home page after logging out).
 9. Login by filling in form after hitting Login button in header (automatically logged in and sent to home page when logged in).
 10. Click on logo to refresh home page or go back to home page.
+
+## Screenshots
+
+!['Home Page'](https://github.com/curtiskelowna/pawsitive-adoption/blob/main/client/public/images/home-page.png?raw=true)
+!['Open Modal'](https://github.com/curtiskelowna/pawsitive-adoption/blob/main/client/public/images/open-modal.png?raw=true)
+!['Favorites Page'](https://github.com/curtiskelowna/pawsitive-adoption/blob/main/client/public/images/favorites-page.png?raw=true)
+!['Signup Page'](https://github.com/curtiskelowna/pawsitive-adoption/blob/main/client/public/images/sign-up-page.png?raw=true)
+!['Login Page'](https://github.com/curtiskelowna/pawsitive-adoption/blob/main/client/public/images/login-page.png?raw=true)

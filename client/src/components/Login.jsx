@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 import "../styles/Login.scss";
 
-function Login({ login, isLoggedIn }) {
+function Login({ login }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -22,7 +22,6 @@ function Login({ login, isLoggedIn }) {
       }
 
       const response = await axios.post('http://localhost:8080/login', { email, password: password });
-      console.log('response', response.data.token);
       localStorage.setItem('token', response.data.token);
       const userData = jwtDecode(response.data.token);
       localStorage.setItem('userData', JSON.stringify(userData));

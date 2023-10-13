@@ -11,7 +11,6 @@ function TopNavBar({ favorites, login, isLoggedIn }) {
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
-    console.log('Logout successful');
     login();
     navigate('/');
   };

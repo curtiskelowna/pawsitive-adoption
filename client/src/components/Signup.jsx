@@ -38,7 +38,7 @@ function Signup({ login, isLoggedIn }) {
       const response = await axios.post('http://localhost:8080/signup', {
         fullName: fullName,
         email,
-        password: userPassword, // Use the stored 'userPassword' variable
+        password: userPassword,
       });
       // Handle successful login and token response
       // Store the token in localStorage
@@ -53,7 +53,7 @@ function Signup({ login, isLoggedIn }) {
     } catch (error) {
       // Handle registration error
       console.error('Registration failed:', error.message);
-      setError(error.message); // Set the error message to display to the user
+      setError(error.message);
     } finally {
       setIsSigningUp(false);
     }

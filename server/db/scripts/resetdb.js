@@ -2,7 +2,7 @@
 require("dotenv").config();
 const { Client } = require('pg');
 const SCHEMA_PATH = './db/schema';
-const SEEDS_PATH = './db/seeds';
+// const SEEDS_PATH = './db/seeds';
 
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT } = process.env;
 const fs = require("fs").promises;
@@ -44,8 +44,8 @@ const resetDB = async () => {
 
     console.log("-- Running Migrations --\n");
     await runMigrations(client);
-    console.log('\n');
-    console.log("-- Running Seeds --\n");
+    // console.log('\n');
+    // console.log("-- Running Seeds --\n");
     // await runSeeds(client);
     console.log('\n');
     console.log("-- COMPLETED --");

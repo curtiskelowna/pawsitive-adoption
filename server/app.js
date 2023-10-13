@@ -5,9 +5,9 @@ const logger = require('morgan');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const pool = require('./configs/db.config');
+// const pool = require('./configs/db.config');
 const { createUser, getUserByEmail, getUserById, updateUser } = require('./db/queries/users');
-const axios = require('axios');
+// const axios = require('axios');
 const { getToken } = require('./getToken');
 
 require('dotenv').config();
@@ -108,7 +108,6 @@ app.get('/api/getToken', async (req, res) => {
 app.get('/api/user/:id', async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log(`Received request for user: ${userId}`);
     const user = await getUserById(userId);
 
     if (!user) {
@@ -122,31 +121,11 @@ app.get('/api/user/:id', async (req, res) => {
   }
 });
 
-app.put('/api/user/:id', async (req, res) => {
-  try {
-
-    const userId = req.params.id;
-    // Update the userData
-    const userData = req.body; // Data sent from the client
-    const updatedUser = await updateUser(userId, userData);
-
-    if (!updatedUser) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
-    res.json(updatedUser);
-  } catch (error) {
-    console.error('Error updating user data:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
+// Route to update user data
 app.post('/api/user/:id', async (req, res) => {
   try {
-    console.log('req.body', req.body);
     const userId = req.params.id;
-    // Update the userData
-    const userData = req.body; // Data sent from the client
+    const userData = req.body;
     const updatedUser = await updateUser(userId, userData);
 
     if (!updatedUser) {

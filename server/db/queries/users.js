@@ -26,7 +26,7 @@ const getUserByEmail = async (email) => {
     const user = result.rows[0];
 
     if (!user) {
-      return null; // User not found
+      return null;
     }
 
     return user;
@@ -61,8 +61,6 @@ const getUserById = async (userId) => {
 };
 
 async function updateUser(userId, userData) {
-  // connect to your database
-  console.log('updateUser');
   // build your update statement
   let updateUserSql = `UPDATE users SET `;
 
@@ -74,7 +72,6 @@ async function updateUser(userId, userData) {
   });
 
   updateUserSql += ` WHERE id = ${userId} RETURNING *;`;
-  console.log(updateUserSql);
   // execute the update statement
   const updatedUser = await db.query(updateUserSql);
   return updatedUser;
